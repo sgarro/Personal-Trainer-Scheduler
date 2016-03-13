@@ -1,0 +1,46 @@
+extends ../home
+
+block main
+	.container
+		mixin inputdiv(icon, field)
+						.row
+							.input-field
+								i.material-icons.prefix= icon
+								input.validate(id= field
+								type='text'
+								name= field
+								)
+								label(for='icon_prefix')= field
+		.row.clientInfo.white
+					form#newClient(method='post', action='/clients', enctype="multipart/form-data")
+						+inputdiv('account_circle', 'nome' )
+						+inputdiv('account_circle', 'cognome' )
+						+inputdiv('phone', 'telefono')
+						+inputdiv('mail', 'mail') 
+						//- inserire thumb
+						+inputdiv('room', 'peso')
+						+inputdiv('room', 'altezza')
+						+inputdiv('room', "eta")
+						+inputdiv('room', 'note')
+						.file-field.input-field
+							.btn
+								span Avatar
+								input(type="file", name="sampleFile")
+						button.btn.waves-effect.waves-light.right Submit
+							i.material-icons.right send
+
+//- extends ../layout
+//- 
+//- block content
+//- 	h1.
+//- 		#{title}
+//- 	form#form(method="post",action="/clients")
+//- 		+inputdiv('account_circle', 'nome' )
+//- 		p Badge:
+//- 			input#inputBadge(type="number", placeholder="ex. 123456", name="badge")
+//- 		p DOB: 
+//- 			input#inputDob(type="date", name="dob")
+//- 		p Are You Loved?: 
+//- 			input#inputIsLoved(type="checkbox", name="isloved")
+//- 		p
+//- 			button#btnSubmit(type="submit") submit
