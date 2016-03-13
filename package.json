@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "Simple app to manage your fitness clients",
   "node-main": "./bin/www",
-  "main": "index.html",
+  "main": "http://localhost:3000",
   "window": {
     "width": 1200,
     "height": 600,

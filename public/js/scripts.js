@@ -57,7 +57,7 @@ dash.registerUser($('#nome').val().trim(), $('#cognome').val().trim(), $('#indir
 $(document).on('click', '#scheda .collapsible-body input', function() {
 	$('.choose').append('<img src="../images/Esercizi/'+this.value+'">')
 });
-
+// sidebar handlers
 $(document).on('click', '.mainMenu li', function() {
 	 $('.mainMenu li').removeClass('active')
    $(this).addClass('active')
@@ -65,3 +65,23 @@ $(document).on('click', '.mainMenu li', function() {
    $('.'+this.id).removeClass('hide')
    $('.collapsible-body')
 });
+//ajax requests
+function clients(){
+    $.ajax({
+      type: "GET",
+      dataType: 'json',
+      url: "/clients",
+      async: true,
+      contentType: "application/json; charset=utf-8",
+      success: function (data) {
+        $('.contacts').html('')
+        $.each(data, function(key, value){
+          var div = $('<div class="new" style="display: none;"><div class="client yellowfont card"><div class="person card-image"><img class="activator" src="uploads/'+value.avatar+'"></div><div class="card.content"><div class="row"><div class="col s1"><i class="material-icons">delete</i></div><div class="col s11"><h4>'+value.nome+'</h4><h4>'+value.cognome+'</h4></div></div></div></div></div>')
+          div.appendTo('.contacts').show('slow')
+        });
+        },
+      error: function(){
+        console.log('something gone wrong')
+        }
+      });
+    }
