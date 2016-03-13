@@ -8,7 +8,7 @@
     "width": 1200,
     "height": 600,
     "title": "My Personal Trainer",
-    "toolbar": false
+    "toolbar": true
   },
   "scripts": {
     "start": "nodewebkit"
