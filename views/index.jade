@@ -3,13 +3,13 @@ extends layout
 block sidebar
 	ul.collection.mainMenu
 		a(href='#' onclick='clients()')
-			li.collection-item#contacts.tooltipped(data-position='right' data-tooltip='Contatti')
+			li.collection-item#contacts.tooltipped.active(data-position='right' data-tooltip='Contatti')
 				i.fa-3x.fa.fa-street-view 
 			
 		li.collection-item#month-picker.tooltipped(data-position='right' data-tooltip='Calendario')
 			i.fa-3x.fa.fa-calendar 
 			
-		li.collection-item#newScheda.active.tooltipped(data-position='right' data-tooltip='Nuova Scheda')
+		li.collection-item#newScheda.tooltipped(data-position='right' data-tooltip='Nuova Scheda')
 			
 			| <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 428.636 428.636" style="enable-background:new 16 180 160 0 0 428.636 428.636; width:50px; margin: 0px -5px -10px -6px; " xml:space="preserve"> <path id="XMLID_908_" d="M89.838,150.039c0,5.247-4.253,9.5-9.5,9.5H41.071c-5.247,0-9.5-4.253-9.5-9.5s4.253-9.5,9.5-9.5h39.267 C85.585,140.539,89.838,144.792,89.838,150.039z M292.56,159.539h39.269c5.247,0,9.5-4.253,9.5-9.5s-4.253-9.5-9.5-9.5H292.56 c-5.247,0-9.5,4.253-9.5,9.5S287.313,159.539,292.56,159.539z M96.384,198.216h-71.36c-2.52,0-4.936-1.001-6.718-2.782 L2.783,179.909C1.001,178.127,0,175.711,0,173.191V50.627c0-2.52,1.001-4.936,2.783-6.718l15.524-15.524 c1.782-1.781,4.198-2.782,6.718-2.782h71.36c2.52,0,4.936,1.001,6.717,2.782l15.524,15.524c1.782,1.782,2.783,4.198,2.783,6.718 v26.18H251.49v-26.18c0-2.52,1.001-4.936,2.782-6.718l15.524-15.524c1.782-1.781,4.198-2.782,6.718-2.782h71.359 c2.52,0,4.936,1.001,6.718,2.782l15.524,15.524c1.782,1.781,2.783,4.198,2.783,6.718v122.564c0,2.52-1.001,4.937-2.783,6.718 l-15.524,15.524c-1.782,1.781-4.198,2.782-6.718,2.782h-71.359c-2.52,0-4.936-1.001-6.718-2.782l-15.524-15.524 c-1.781-1.782-2.782-4.198-2.782-6.718v-26.18H121.409v26.18c0,2.52-1.001,4.936-2.783,6.718l-15.524,15.524 C101.32,197.215,98.904,198.216,96.384,198.216z M270.49,169.257l9.959,9.959h63.49l9.96-9.96V54.562l-9.96-9.96h-63.49 l-9.959,9.959V169.257z M121.409,128.011h16.522v-10.595c0-5.247,4.253-9.5,9.5-9.5s9.5,4.253,9.5,9.5v10.595h14.444v-10.595
 			|	c0-5.247,4.253-9.5,9.5-9.5s9.5,4.253,9.5,9.5v10.595h14.442v-10.595c0-5.247,4.253-9.5,9.5-9.5c5.247,0,9.5,4.253,9.5,9.5v10.595
@@ -28,7 +28,7 @@ block sidebar
 			|	c5.247,0,9.5-4.253,9.5-9.5S392.812,345.356,387.565,345.356z M136.076,345.356H96.808c-5.247,0-9.5,4.253-9.5,9.5
 			|	s4.253,9.5,9.5,9.5h39.268c5.247,0,9.5-4.253,9.5-9.5S141.322,345.356,136.076,345.356z"/></svg>
 block content
-	.contacts.hide
+	.contacts
 		p Nothing to show yet
 	.month-picker.hide
 		fieldset.month-picker-fieldset
@@ -56,7 +56,7 @@ block content
 			label(for="nov").month-picker-label Nov
 			input(type="radio" name="month" value="dec" id="dec")
 			label(for="dec").month-picker-label Dec
-	.newScheda
+	.newScheda.hide
 		.col.s4#list-esercizi
 			.row
 				.col.s12
