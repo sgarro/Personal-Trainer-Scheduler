@@ -46,9 +46,9 @@ router.route('/')
     //POST a new blob
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
-        try { avatar = req.files.sampleFile.name }
+        try {avatar = req.files.sampleFile.name }
 
-        		catch(err) { avatar = 'standard.png'}
+        catch(err) {avatar = 'standard.png'}
         		// }
         		frequenza = 208-(0.7*req.body.eta)
         		var data = {
@@ -79,9 +79,9 @@ router.route('/')
                       //HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
                     html: function(){
                         // If it worked, set the header so the address bar doesn't still say /adduser
-                        res.location("clients");
+                        
                         // // And forward to success page
-                        res.redirect("/clients");
+                        res.redirect("/");
                         // res.send(blob)
                     },
                     //JSON response will show the newly created blob

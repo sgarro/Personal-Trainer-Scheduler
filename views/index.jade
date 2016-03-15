@@ -29,7 +29,15 @@ block sidebar
 			|	s4.253,9.5,9.5,9.5h39.268c5.247,0,9.5-4.253,9.5-9.5S141.322,345.356,136.076,345.356z"/></svg>
 block content
 	.contacts
-		p Nothing to show yet
+		.new(ng-repeat='client in clients')
+			.contain.yellowfont.card
+				.person.card-image
+					img.activator(ng-src='uploads/{{client.avatar}}')
+				.card-content
+					span.card-title.activator {{client.nome}}
+					br
+					span.card-title.activator {{client.cognome}}
+		
 	.month-picker.hide
 		fieldset.month-picker-fieldset
 			input(type="radio" name="month" value="jan" id="jan")
@@ -58,8 +66,9 @@ block content
 			label(for="dec").month-picker-label Dec
 	.newScheda.hide
 		.col.s4#list-esercizi
-			.row
-				.col.s12
+		span.card-title.activator4ow
+span.car
+brd-title.activator	4.col.s12
 					ul.tabs
 						li.tab.col6
 							a(href='#Fronte').active Fronte
@@ -81,4 +90,36 @@ block content
 		.col.s8
 	block out
 		#annotator.fixed-action-btn
-			a(href='/add'): button.btn-floating.btn-large.navcolor: i.large.mdi-content-add
+			a(href='/clients/new').modal-trigger: button.btn-floating.btn-large.navcolor: i.large.mdi-content-add
+		#addClient.modal
+			.modal-content
+				mixin inputdiv(icon, field)
+								.row
+									.input-field
+										i.material-icons.prefix= icon
+										input.validate(id= field
+										type='text'
+										name= field
+										ng-model='formData.'+field
+										)
+										label(for='icon_prefix')= field
+				.row.clientInfo.white
+							form#newClient(enctype="multipart/form-data")
+								+inputdiv('account_circle', 'nome' )
+								+inputdiv('account_circle', 'cognome' )
+								+inputdiv('phone', 'telefono')
+								+inputdiv('mail', 'mail') 
+								//- inserire thumb
+								+inputdiv('room', 'peso')
+								+inputdiv('room', 'altezza')
+								+inputdiv('room', "eta")
+								+inputdiv('room', 'note')
+								.file-field.input-field
+									.btn
+										span Avatar
+										input(type="file", name="sampleFile" file-model='sampleFile' )
+											
+											
+										
+								button(ng-click='createClient()').btn.waves-effect.waves-light.right Submit
+									i.material-icons.right send

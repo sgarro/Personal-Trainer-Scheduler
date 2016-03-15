@@ -126,10 +126,10 @@ nav {
 .client .card-reveal p.card-title {
   font-size: 14px;
 }
-.client .person {
+.person {
   height: 280px;
 }
-.client .person img {
+.person img {
   height: 100%;
   width: 100%;
 }

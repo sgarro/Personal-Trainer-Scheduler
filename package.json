@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "Simple app to manage your fitness clients",
   "node-main": "./bin/www",
-  "main": "http://localhost:3000",
+  "main": "index.html",
   "window": {
     "width": 1200,
     "height": 600,
@@ -14,6 +14,7 @@
     "start": "nodewebkit"
   },
   "dependencies": {
+    "angular-file-upload": "^2.2.0",
     "body-parser": "^1.14.1",
     "diskdb": "^0.1.14",
     "express": "^4.10.4",

@@ -1,6 +1,6 @@
 
   $(document).ready(function() {
-    clients()
+    // clients()
 
 
   $('.datepicker').pickadate({
@@ -12,17 +12,7 @@ $('.modal-trigger').leanModal();
 
   });
 
-function add(){
-	location.href = 'add';
 
-}
-
-function clientSend(){
-
-dash.registerUser($('#nome').val().trim(), $('#cognome').val().trim(), $('#indirizzo').val().trim(), $('#peso').val().trim(), $('#telefono').val().trim());
-
-
-}
 // $( document ).ready(function() {
 // // 	user = .findUser()
 // // 	$.each(user, function(index, value) {
@@ -66,22 +56,22 @@ $(document).on('click', '.mainMenu li', function() {
    $('.collapsible-body')
 });
 //ajax requests
-function clients(){
-    $.ajax({
-      type: "GET",
-      dataType: 'json',
-      url: "/clients",
-      async: true,
-      contentType: "application/json; charset=utf-8",
-      success: function (data) {
-        $('.contacts').html('')
-        $.each(data, function(key, value){
-          var div = $('<div class="new" style="display: none;"><div class="client yellowfont card"><div class="person card-image"><img class="activator" src="uploads/'+value.avatar+'"></div><div class="card.content"><div class="row"><div class="col s1"><i class="material-icons">delete</i></div><div class="col s11"><h4>'+value.nome+'</h4><h4>'+value.cognome+'</h4></div></div></div></div></div>')
-          div.appendTo('.contacts').show('slow')
-        });
-        },
-      error: function(){
-        console.log('something gone wrong')
-        }
-      });
-    }
+// function clients(){
+//     $.ajax({
+//       type: "GET",
+//       dataType: 'json',
+//       url: "/clients",
+//       async: true,
+//       contentType: "application/json; charset=utf-8",
+//       success: function (data) {
+//         $('.contacts').html('')
+//         $.each(data, function(key, value){
+//           var div = $('<div class="new" style="display: none;"><div class="client yellowfont card"><div class="person card-image"><img class="activator" src="uploads/'+value.avatar+'"></div><div class="card.content"><div class="row"><div class="col s1"><i class="material-icons">delete</i></div><div class="col s11"><h4>'+value.nome+'</h4><h4>'+value.cognome+'</h4></div></div></div></div></div>')
+//           div.appendTo('.contacts').show('slow')
+//         });
+//         },
+//       error: function(){
+//         console.log('something gone wrong')
+//         }
+//       });
+//     }
