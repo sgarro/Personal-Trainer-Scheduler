@@ -2,7 +2,8 @@ var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'), //mongo connection
     bodyParser = require('body-parser'), //parses information from POST
-    methodOverride = require('method-override'); //used to manipulate POST
+    methodOverride = require('method-override'), //used to manipulate POST
+    fs = require('fs'); // to remove files
 
 //Any requests to this controller must pass through this 'use' function
 //Copy and pasted from method-override
@@ -99,20 +100,31 @@ router.get('/new', function(req, res) {
 });
 
 router.delete('/:client_id', function(req, res) {
-      mongoose.model('Client').remove({
-           _id : req.params.client_id
-       }, function(err, todo) {
-           if (err)
-               res.send(err);
-
-           // get and return all the todos after you create another
-           mongoose.model('Client').find(function(err, clients) {
-               if (err)
-                   res.send(err)
-               res.json(clients);
-           });
-       });
+    // #Done:0 Delete avatar from uploads folder
+    mongoose.model('Client').findById(req.params.client_id, function(err, client){
+        if (err) {
+            res.json(err)
+        } else {
+            //   remove avatar from server if it's not the standard
+            if (client.avatar != 'standard.png')
+            try {
+                fs.unlinkSync('./public/uploads/'+client.avatar)
+            } catch (e) {
+                console.log(e)
+            }
+            //remove client from Mongo
+            client.remove(function (err, client){
+                if (err) {
+                    res.json(client)
+                }
+                else {
+                    res.json('rimosso')
+                }
+            });
+          }
+      });
    });
-
+// #AngularJS:10 route for edit Client info
+// #AngularJS:20 route for show Client info
 
 module.exports = router;

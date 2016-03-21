@@ -12,7 +12,7 @@ body
   color: yellowfont
   // background-image: url(http://skin.forumfree.net/2323/sfondo.png)!important
   // background-image: linear-gradient(to top right, backtwo, #3f254e);
-
+/* TODO: indent and fix this shitty css */
 .tabs .indicator
   background: none
 
@@ -114,7 +114,8 @@ nav
   display: flex;
   flex-wrap: wrap;
   padding: 5px;
-
+  thead
+    border-bottom: 1px solid backtwo
  td
    width: 20%
    img
@@ -294,3 +295,25 @@ input:checked + .month-picker-label:before
     vertical-align: middle;
 
 // End New Scheda Card
+
+
+
+//angular animation
+/* you can also define the transition style
+   on the base class as well (.repeat-item) */
+.repeat-client.ng-enter,
+.repeat-client.ng-leave {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+}
+
+.repeat-client.ng-enter,
+.repeat-client.ng-leave.ng-leave-active {
+  opacity:0;
+
+}
+.repeat-client.ng-leave,
+.repeat-client.ng-enter.ng-enter-active {
+  opacity:1;
+
+}

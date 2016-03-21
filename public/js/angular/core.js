@@ -1,4 +1,5 @@
-var fitnessScheduler = angular.module('fitnessScheduler', ['file-model']);
+// #AngularJS:0 upload avatars
+var fitnessScheduler = angular.module('fitnessScheduler', ['file-model', "ngAnimate"]);
 
 function mainController($scope, $http) {
     $scope.formData = {};
@@ -31,7 +32,7 @@ function mainController($scope, $http) {
 
     // delete a todo after checking it
     $scope.removeClient = function(client) {
-        console.log(client._id)
+        console.log(client.avatar)
         $http.delete('/clients/' + client._id)
             .success(function(data) {
                 $scope.clients.splice($scope.clients.indexOf(client), 1);

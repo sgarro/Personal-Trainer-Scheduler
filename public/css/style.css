@@ -110,6 +110,9 @@ nav {
   flex-wrap: wrap;
   padding: 5px;
 }
+.contacts thead {
+  border-bottom: 1px solid #230c36;
+}
 td {
   width: 20%;
 }
@@ -326,4 +329,19 @@ input:checked + .month-picker-label:before {
   height: auto;
   max-width: 100%;
   vertical-align: middle;
+}
+/* you can also define the transition style
+   on the base class as well (.repeat-item) */
+.repeat-client.ng-enter,
+.repeat-client.ng-leave {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+.repeat-client.ng-enter,
+.repeat-client.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.repeat-client.ng-leave,
+.repeat-client.ng-enter.ng-enter-active {
+  opacity: 1;
 }

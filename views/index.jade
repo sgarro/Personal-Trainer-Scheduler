@@ -39,7 +39,7 @@ block content
 					th(data-field='Fine Scheda') Fine Scheda
 					
 			tbody
-				tr(ng-repeat='client in clients')
+				tr(ng-repeat='client in clients').repeat-client
 					td 
 						img.circle.responsive-img(ng-src='uploads/{{client.avatar}}')
 					td {{client.nome}}
@@ -50,8 +50,8 @@ block content
 					td
 						i.fa.fa-pencil
 					td
-						button(ng-click='removeClient(client)').
-							Delete
+						i(ng-click='removeClient(client)').material-icons delete
+						
 		//- .new(ng-repeat='client in clients')
 		//- 	.contain.yellowfont.card
 		//- 		.person.card-image
@@ -110,7 +110,7 @@ block content
 		.col.s8
 	block out
 		#annotator.fixed-action-btn
-			a(href='/clients/new').modal-trigger: button.btn-floating.btn-large.navcolor: i.large.mdi-content-add
+			a(href='#addClient').modal-trigger: button.btn-floating.btn-large.navcolor: i.large.mdi-content-add
 		#addClient.modal
 			.modal-content
 				mixin inputdiv(icon, field)
