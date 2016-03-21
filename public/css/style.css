@@ -3,6 +3,26 @@ body {
   background: #3f254e;
   color: #f4cd80;
 }
+.tabs .indicator {
+  background: none;
+}
+@font-face {
+  font-family: "Dense";
+  src: url("./font/Dense-Regular.otf");
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("font/Raleway-Light.ttf");
+}
+table {
+  font-family: 'Dense';
+}
+table.striped>tbody>tr:nth-child(odd) {
+  background: #230c36;
+}
+body {
+  font-family: "Raleway";
+}
 nav {
   background: #230c36;
   background-image: linear-gradient(to right, #230c36, #3f254e);
@@ -89,6 +109,12 @@ nav {
   display: flex;
   flex-wrap: wrap;
   padding: 5px;
+}
+td {
+  width: 20%;
+}
+td img {
+  width: 50%;
 }
 #scheda {
   background: #fff;

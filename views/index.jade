@@ -2,9 +2,8 @@ extends layout
 
 block sidebar
 	ul.collection.mainMenu
-		a(href='#' onclick='clients()')
-			li.collection-item#contacts.tooltipped.active(data-position='right' data-tooltip='Contatti')
-				i.fa-3x.fa.fa-street-view 
+		li.collection-item#contacts.tooltipped.active(data-position='right' data-tooltip='Contatti')
+			i.fa-3x.fa.fa-street-view 
 			
 		li.collection-item#month-picker.tooltipped(data-position='right' data-tooltip='Calendario')
 			i.fa-3x.fa.fa-calendar 
@@ -28,15 +27,39 @@ block sidebar
 			|	c5.247,0,9.5-4.253,9.5-9.5S392.812,345.356,387.565,345.356z M136.076,345.356H96.808c-5.247,0-9.5,4.253-9.5,9.5
 			|	s4.253,9.5,9.5,9.5h39.268c5.247,0,9.5-4.253,9.5-9.5S141.322,345.356,136.076,345.356z"/></svg>
 block content
-	.contacts
-		.new(ng-repeat='client in clients')
-			.contain.yellowfont.card
-				.person.card-image
-					img.activator(ng-src='uploads/{{client.avatar}}')
-				.card-content
-					span.card-title.activator {{client.nome}}
-					br
-					span.card-title.activator {{client.cognome}}
+	.contacts.col.s4
+		table.striped
+			thead
+				tr
+					th(data-field='Avatar') Avatar 
+					th(data-field='Nome') Nome
+					th(data-field='Cognome') Cognome
+					th(data-field='Peso') Peso
+					th(data-field='Attivo') Attivo
+					th(data-field='Fine Scheda') Fine Scheda
+					
+			tbody
+				tr(ng-repeat='client in clients')
+					td 
+						img.circle.responsive-img(ng-src='uploads/{{client.avatar}}')
+					td {{client.nome}}
+					td {{client.cognome}}
+					td {{client.peso}}
+					td Si
+					td 24/5
+					td
+						i.fa.fa-pencil
+					td
+						button(ng-click='removeClient(client)').
+							Delete
+		//- .new(ng-repeat='client in clients')
+		//- 	.contain.yellowfont.card
+		//- 		.person.card-image
+		//- 			img.activator(ng-src='uploads/{{client.avatar}}')
+		//- 		.card-content
+		//- 			span.card-title.activator {{client.nome}}
+		//- 			br
+		//- 			span.card-title.activator {{client.cognome}}
 		
 	.month-picker.hide
 		fieldset.month-picker-fieldset
@@ -66,14 +89,11 @@ block content
 			label(for="dec").month-picker-label Dec
 	.newScheda.hide
 		.col.s4#list-esercizi
-		span.card-title.activator4ow
-span.car
-brd-title.activator	4.col.s12
-					ul.tabs
-						li.tab.col6
-							a(href='#Fronte').active Fronte
-						li.tab.col6
-							a(href='#Dorso')|Dorso
+			ul.tabs
+				li.tab.col6
+					a(href='#Fronte').active Fronte
+				li.tab.col6
+					a(href='#Dorso')|Dorso
 			#Fronte
 				ul.collapsible(data-collapsible='expandable')
 					for img, type in files
@@ -86,7 +106,7 @@ brd-title.activator	4.col.s12
 										li 
 											img(src='../images/Esercizi'+file)
 			#Dorso
-				|Nothing to show yet
+				
 		.col.s8
 	block out
 		#annotator.fixed-action-btn

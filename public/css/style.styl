@@ -5,7 +5,6 @@ navcolor = yellowfont
 ombra = 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 backthree = #3f2544
 yellowfont = #f4cd80
-
 pinkcard = #711254
 body
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
@@ -13,6 +12,25 @@ body
   color: yellowfont
   // background-image: url(http://skin.forumfree.net/2323/sfondo.png)!important
   // background-image: linear-gradient(to top right, backtwo, #3f254e);
+
+.tabs .indicator
+  background: none
+
+@font-face
+  font-family: "Dense"
+  src: url(./font/Dense-Regular.otf)
+
+@font-face
+  font-family: "Raleway"
+  src: url(font/Raleway-Light.ttf)
+
+table
+  font-family: 'Dense'
+table.striped>tbody>tr:nth-child(odd)
+  background: backtwo
+
+body
+  font-family: "Raleway"
 
 nav
   background: backtwo
@@ -96,6 +114,11 @@ nav
   display: flex;
   flex-wrap: wrap;
   padding: 5px;
+
+ td
+   width: 20%
+   img
+     width: 50%
 
 #scheda
   background: white
