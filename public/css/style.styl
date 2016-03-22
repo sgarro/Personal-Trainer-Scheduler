@@ -1,17 +1,40 @@
-back = #421665
-backtwo = #230c36
+// back = #421665
+// backtwo = #230c36
+// backthree = #3f2544
+// backfour = #3f254e
 // navcolor = rgb(16, 180, 160)
 navcolor = yellowfont
 ombra = 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-backthree = #3f2544
-yellowfont = #f4cd80
+
+// back = #7B0A4E
+// backfour = #7A3B4C
+// backthree = #C75F7B
+// backtwo = #C7107E
+
+// back = #100f21
+// backtwo = #12091d
+// backthree = #39393b
+// backfour = #434345
+// #ff3800
+// back = #0872ad
+back = #091c28
+backtwo = #0a2230
+backthree = #0e405d
+backfour = #091c28
+// yellowfont = #f4cd80
+yellowfont = #3F180B
 pinkcard = #711254
+
+::-webkit-scrollbar
+    display: none;
+
+
 body
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
-  background: #3f254e
-  color: yellowfont
+  background: backfour
+  color: #ddd
   // background-image: url(http://skin.forumfree.net/2323/sfondo.png)!important
-  // background-image: linear-gradient(to top right, backtwo, #3f254e);
+  // background-image: linear-gradient(to top right, backtwo, backfour);
 /* TODO: indent and fix this shitty css */
 .tabs .indicator
   background: none
@@ -34,7 +57,7 @@ body
 
 nav
   background: backtwo
-  background-image: linear-gradient(to right, backtwo, #3f254e);
+  background-image: linear-gradient(to right, backtwo, backfour);
 
 .navcolor
   background: navcolor
@@ -46,9 +69,9 @@ nav
 .container
   width: 80%
 #main
-  height 100%
+  max-height 100%
   width 100%
-  position relative
+  position absolute
   padding 0px
   input
     width: 90%
@@ -67,8 +90,7 @@ nav
   overflow: overlay
   width: 50px
   height: 100%
-  background: back
-  background-image: linear-gradient(to bottom, backtwo, #3f254e);
+  background-image: linear-gradient(to bottom, backtwo, backfour);
   // box-shadow ombra
   padding 0px !important
   position fixed
@@ -85,7 +107,7 @@ nav
     li:hover
       border-left: 5px solid backthree
     .active
-      background: #3f254e
+      background: backfour
       border-right 0
       box-shadow: none
       color:yellowfont
@@ -106,21 +128,32 @@ nav
 // Start Main Card
 #mainContent
   float right
+  position: relative;
   padding: 0px
+  height: 90%
 //End Main
 
 // Contacts card
 .contacts
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
   padding: 5px;
+  position: fixed;
+  overflow: auto
+  height: 100%
+  // float: left
   thead
     border-bottom: 1px solid backtwo
  td
    width: 20%
    img
      width: 50%
-
+#showInfo
+  position: relative;
+  float: right;
+  overflow-y: overlay
+  height: 100%
+  padding-left: 30px
 #scheda
   background: white
   height: 100%

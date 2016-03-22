@@ -1,9 +1,9 @@
-// #AngularJS:0 upload avatars
+// #AngularJS:20 upload avatars issue:1
+// #AngularJS: get info for single client
+// #AngularJS: Drag n drop to create new card
 var fitnessScheduler = angular.module('fitnessScheduler', ['file-model', "ngAnimate"]);
 
 function mainController($scope, $http) {
-    $scope.formData = {};
-
     // when landing on the page, get all todos and show them
     $http.get('/clients')
         .success(function(data) {
@@ -36,11 +36,21 @@ function mainController($scope, $http) {
         $http.delete('/clients/' + client._id)
             .success(function(data) {
                 $scope.clients.splice($scope.clients.indexOf(client), 1);
-                console.log(data);
+                $scope.showClient(data);
             })
             .error(function(data) {
                 console.log('Error: ' + data);
             });
     };
 
+    //get Client
+    $scope.getClient = function(id){
+        $http.get('/clients/' + id)
+            .success(function(data){
+                $scope.showClient(data);
+            })
+            .error(function(data){
+                window.alert('Error: ' + data);
+            });
+    };
 }

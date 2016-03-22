@@ -1,5 +1,6 @@
 extends layout
 
+
 block sidebar
 	ul.collection.mainMenu
 		li.collection-item#contacts.tooltipped.active(data-position='right' data-tooltip='Contatti')
@@ -27,7 +28,13 @@ block sidebar
 			|	c5.247,0,9.5-4.253,9.5-9.5S392.812,345.356,387.565,345.356z M136.076,345.356H96.808c-5.247,0-9.5,4.253-9.5,9.5
 			|	s4.253,9.5,9.5,9.5h39.268c5.247,0,9.5-4.253,9.5-9.5S141.322,345.356,136.076,345.356z"/></svg>
 block content
-	.contacts.col.s4
+	.row(ng-hide='clients')
+		.animazioneContainer.col.s4
+			i.preloader.valign-wrapper
+	.row(ng-hide='clients')
+		.caricamento.col.s4
+			p.center Caricamento clienti
+	.contacts.col.s4(ng-show='clients')
 		table.striped
 			thead
 				tr
@@ -37,6 +44,9 @@ block content
 					th(data-field='Peso') Peso
 					th(data-field='Attivo') Attivo
 					th(data-field='Fine Scheda') Fine Scheda
+					th(data-field='Fine Scheda') Modifica
+					th(data-field='Fine Scheda') Elimina
+					
 					
 			tbody
 				tr(ng-repeat='client in clients').repeat-client
@@ -48,10 +58,48 @@ block content
 					td Si
 					td 24/5
 					td
-						i.fa.fa-pencil
+						i(ng-click='clients.selected = client', data-target="#showInfo").fa.fa-pencil
 					td
 						i(ng-click='removeClient(client)').material-icons delete
-						
+	//info Cliente
+	.contacts.col.s8#showInfo(ng-show='clients.selected') 
+		.col.s3
+			img(ng-src='uploads/{{clients.selected.avatar}}').responsive-img
+			
+			p.center {{clients.selected.nome}} {{clients.selected.cognome}}
+			
+			table.striped
+				thead 
+					tr
+						th(data-field='peso') Peso
+						th(data-field='altezza') Altezza
+				tbody
+					tr
+						td {{clients.selected.peso}} kg
+						td {{clients.selected.altezza}} cm
+			br
+			table.striped Frequenza cardiaca {{clients.selected.frequenza}}
+				thead 
+					tr
+						th(data-field='Tipo') Tipo
+						th(data-field='min') Minima
+						th(data-field='max') Massima
+				tbody
+					tr
+						td Lipidica
+						td {{clients.selected.lipmin}}
+						td {{clients.selected.lipmax}}
+					tr
+						td Aerobica
+						td {{clients.selected.aeromin}}
+						td {{clients.selected.aeromax}}
+					tr
+						td Anaerobica
+						td {{clients.selected.aneromin}}
+						td {{clients.selected.aneromax}}
+			
+			p Telefono {{clients.selected.telefono}}
+			p Email {{clients.selected.email}}
 		//- .new(ng-repeat='client in clients')
 		//- 	.contain.yellowfont.card
 		//- 		.person.card-image
@@ -138,8 +186,6 @@ block content
 									.btn
 										span Avatar
 										input(type="file", name="sampleFile" file-model='sampleFile' )
-											
-											
-										
+
 								button(ng-click='createClient()').btn.waves-effect.waves-light.right Submit
 									i.material-icons.right send

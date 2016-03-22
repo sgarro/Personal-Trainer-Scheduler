@@ -95,36 +95,54 @@ router.route('/')
     });
 
 /* GET New Client page. */
+
 router.get('/new', function(req, res) {
     res.render('clients/new');
 });
-
-router.delete('/:client_id', function(req, res) {
-    // #Done:0 Delete avatar from uploads folder
-    mongoose.model('Client').findById(req.params.client_id, function(err, client){
+router.route('/:client_id')
+    .get(function(req,res){
+      mongoose.model('Client').findById(req.params.client_id, function(err, client){
         if (err) {
-            res.json(err)
+          res.json(err)
         } else {
-            //   remove avatar from server if it's not the standard
-            if (client.avatar != 'standard.png')
-            try {
-                fs.unlinkSync('./public/uploads/'+client.avatar)
-            } catch (e) {
-                console.log(e)
-            }
-            //remove client from Mongo
-            client.remove(function (err, client){
-                if (err) {
-                    res.json(client)
-                }
-                else {
-                    res.json('rimosso')
-                }
-            });
-          }
+          res.json(client)
+        }
       });
-   });
-// #AngularJS:10 route for edit Client info
-// #AngularJS:20 route for show Client info
+    })
+  //delete client
+    .delete(function(req, res) {
+      // #Done:0 Delete avatar from uploads folder
+      mongoose.model('Client').findById(req.params.client_id, function(err, client){
+          if (err) {
+              res.json(err)
+          } else {
+              //   remove avatar from server if it's not the standard
+              if (client.avatar != 'standard.png')
+              try {
+                  fs.unlinkSync('./public/uploads/'+client.avatar)
+              } catch (e) {
+                  console.log(e)
+              }
+              //remove client from Mongo
+              client.remove(function (err, client){
+                  if (err) {
+                      res.json(client)
+                  }
+                  else {
+                      res.json('rimosso')
+                  }
+              });
+            }
+        });
+     });
+// #AngularJS:0 route for edit Client info
+    // .get(function(req, res){
+    //   mongoose.model('Client').findById(req.params.client_id, function(err, client){
+    //     if (err)
+    //       res.json(err)
+    //     res.json(client);
+    //   });
+    // })
+// #AngularJS:10 route for show Client info
 
 module.exports = router;
