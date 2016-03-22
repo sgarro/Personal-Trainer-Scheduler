@@ -98,59 +98,6 @@ nav {
   padding: 0px;
   height: 90%;
 }
-#scheda {
-  background: #fff;
-  height: 100%;
-}
-#scheda .collapsible-body li {
-  border: 1px solid #00f;
-  border-radius: 3px;
-  margin: 5px;
-}
-#scheda .collapsible-body li img {
-  width: 200px;
-  height: auto;
-}
-.new {
-  padding: 5px;
-  margin-bottom: 15px;
-  heigth: 500px;
-  width: 250px;
-  text-align: center;
-  border-radius: 5px;
-}
-.new a {
-  color: #fff;
-}
-.client {
-  padding: 3px;
-  border-radius: 5px;
-}
-.client .card-reveal {
-  padding: 20px 6px;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-}
-.client .card-reveal p.card-title {
-  font-size: 14px;
-}
-.person {
-  height: 280px;
-}
-.person img {
-  height: 100%;
-  width: 100%;
-}
-.client:hover {
-  box-shadow: 0 2px 5px 5px rgba(63,24,11,0.46), 0 2px 10px 0 rgba(0,0,0,0.42);
-}
-.name {
-  bottom: 0;
-}
-.card .card-content {
-  padding: 0px;
-  font-size: 20px;
-}
 .clientInfo {
   padding: 25px;
   overflow: hidden;
@@ -318,12 +265,6 @@ input:checked + .month-picker-label:before {
 }
 #list-esercizi img {
   width: 100% !important;
-}
-#list-esercizi .row {
-  margin-bottom: 0px;
-}
-#list-esercizi .row > div {
-  padding: 0px;
 }
 #list-esercizi .tabs {
   background: #0a2230;
