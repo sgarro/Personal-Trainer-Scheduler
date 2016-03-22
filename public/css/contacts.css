@@ -1,0 +1,43 @@
+.first table {
+  font-family: 'Dense';
+}
+.first table.striped>tbody>tr:nth-child(odd) {
+  background: backtwo;
+}
+.contacts {
+  padding: 5px;
+  position: fixed;
+  overflow: auto;
+  height: 100%;
+}
+.contacts thead {
+  border-bottom: 1px solid backtwo;
+}
+td {
+  width: 20%;
+}
+td img {
+  width: 50%;
+}
+#contactsList {
+  border-right: 2px solid backfour;
+}
+#showInfo {
+  position: relative;
+  float: right;
+  overflow-y: overlay;
+  height: 100%;
+  padding-left: 30px;
+  padding-top: 15px;
+}
+#showInfo img {
+  box-shadow: ombra;
+}
+#showInfo .info {
+  color: yellowfont;
+  font-size: 16px !important;
+}
+#showInfo i.left {
+  margin-right: 1px;
+  font-size: 16px;
+}

@@ -1,22 +1,72 @@
-back = #421665
-backtwo = #230c36
+// back = #421665
+// backtwo = #230c36
+// backthree = #3f2544
+// backfour = #3f254e
 // navcolor = rgb(16, 180, 160)
 navcolor = yellowfont
 ombra = 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-backthree = #3f2544
-yellowfont = #f4cd80
 
+// back = #7B0A4E
+// backfour = #7A3B4C
+// backthree = #C75F7B
+// backtwo = #C7107E
+
+// back = #100f21
+// backtwo = #12091d
+// backthree = #39393b
+// backfour = #434345
+// #ff3800
+// back = #0872ad
+back = #091c28
+backtwo = #0a2230
+backthree = #0e405d
+backfour = #091c28
+// yellowfont = #f4cd80
+yellowfont = #3F180B
 pinkcard = #711254
+
+::-webkit-scrollbar
+    display: none;
+
+.back
+  background: back
+
+.backtwo
+  background: backtwo
+
+.backthree
+  background: backthree
+
+.backfour
+  background: backfour
+
 body
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
-  background: #3f254e
-  color: yellowfont
+  // background: backfour
+  background: #334
+  color: #ddd
+  font-family: "Raleway"
   // background-image: url(http://skin.forumfree.net/2323/sfondo.png)!important
-  // background-image: linear-gradient(to top right, backtwo, #3f254e);
+  // background-image: linear-gradient(to top right, backtwo, backfour);
+/* TODO: indent and fix this shitty css */
+.tabs .indicator
+  background: none
+
+@font-face
+  font-family: "Dense"
+  src: url(font/Dense-Regular.otf)
+
+@font-face
+  font-family: "Raleway"
+  src: url(font/Raleway-Thin.ttf)
+
+
+
+
 
 nav
   background: backtwo
-  background-image: linear-gradient(to right, backtwo, #3f254e);
+  background-image: linear-gradient(to right, backtwo, backfour);
 
 .navcolor
   background: navcolor
@@ -25,32 +75,20 @@ nav
   background: pinkcard
   color: yellowfont
 
-.container
-  width: 80%
 #main
-  height 100%
+  max-height 100%
   width 100%
-  position relative
+  position absolute
   padding 0px
   input
     width: 90%
-  .avatar img
-    height:20%
-    width: 100%
-  .element
-    padding: 5px
-    margin: 5px
-    border: 3px solid white
-    border-radius: 15px
-
 // Start Sidebar
 .side
   // border-right 1px solid rgb(34, 30, 31)
   overflow: overlay
   width: 50px
   height: 100%
-  background: back
-  background-image: linear-gradient(to bottom, backtwo, #3f254e);
+  background-image: linear-gradient(to bottom, backtwo, backfour);
   // box-shadow ombra
   padding 0px !important
   position fixed
@@ -67,7 +105,7 @@ nav
     li:hover
       border-left: 5px solid backthree
     .active
-      background: #3f254e
+      background: backfour
       border-right 0
       box-shadow: none
       color:yellowfont
@@ -76,8 +114,6 @@ nav
   fill backthree
   color backthree
   padding-left: 30%
-  ul
-    margin-left: 20px
 #newScheda.active
     fill yellowfont
 .collapsible
@@ -88,14 +124,10 @@ nav
 // Start Main Card
 #mainContent
   float right
+  position: relative;
   padding: 0px
+  height: 90%
 //End Main
-
-// Contacts card
-.contacts
-  display: flex;
-  flex-wrap: wrap;
-  padding: 5px;
 
 #scheda
   background: white
@@ -127,11 +159,11 @@ nav
       color white
       p.card-title
         font-size: 14px
-    .person
-      height: 280px
-      img
-        height: 100%
-        width: 100%
+.person
+  height: 280px
+  img
+    height: 100%
+    width: 100%
 .client:hover
     box-shadow: 0 2px 5px 5px rgba(navcolor, 0.46), 0 2px 10px 0 rgba(0, 0, 0, 0.42);
 
@@ -154,97 +186,14 @@ nav
     box-shadow 0 1px 0 0 navcolor
     +label
       color navcolor
-// Start Calendar Card
-.month-picker
-  text-align: center;
-  margin: 10px;
-  fieldset
-    border 0
-.month-picker-fieldset
-  display: inline-block;
-  padding: 0 7px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
-  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-.month-picker-fieldset > input
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-.month-picker-label, .month-picker-nav
-  display: inline-block;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  line-height: 25px;
-  vertical-align: top;
-  cursor: pointer;
-input:focus + .month-picker-label, .month-picker-nav:focus
-  outline: 2px solid #5e9ed7;
-  outline: 5px auto -webkit-focus-ring-color;
-.month-picker-label
-  position: relative;
-  padding: 0 7px;
-  font-size: 12px;
-  font-weight: 200;
-  color: #8d8ba6;
-  text-transform: uppercase;
-  text-shadow: 0 1px 1px black;
-.month-picker-label, .month-picker-label:before
-  -webkit-transition: 0.15s ease-out;
-  -moz-transition: 0.15s ease-out;
-  -o-transition: 0.15s ease-out;
-  transition: 0.15s ease-out;
-.month-picker-label:before
-  content: '';
-  position: absolute;
-  top: -2px;
-  bottom: -2px;
-  left: -2px;
-  right: -2px;
-  border: 2px solid;
-  border-color: #e4e0fb #b6b1d1 #b6b1d1;
-  border-radius: 6px;
-  opacity: 0;
-  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-input:checked + .month-picker-label
-  color: white;
-  background: back
-input:checked + .month-picker-label:before
-  opacity: 1;
-.month-picker-nav
-  width: 25px;
-  font-size: 16px;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.7);
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 1px rgba(255, 255, 255, 0.1);
-// End Calendar Card
 
-// Start New Scheda Card
-.newScheda
-  padding 0px
-#list-esercizi
-  box-shadow ombra
-  background: rgba(0,0,0,0.2)
-  padding: 10px
-  .collapsible
-    box-shadow: none
-  img
-    width: 100%
 
-.excercise-item
-  color: #fff
-  background: navcolor
-.esercizi ul li
-  border 3px solid black
-  width: 31%
-  color: white
-  display: inline-block;
-  margin: 1%
-  img
-    display: inline-block;
-    height: auto;
-    max-width: 100%;
-    vertical-align: middle;
 
-// End New Scheda Card
+
+
+
+@import "./contacts"
+@import "./calendar"
+@import "./scheda"
+@import "./angulAnimation"
+// @import "./animations.css"

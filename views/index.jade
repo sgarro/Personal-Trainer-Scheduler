@@ -1,5 +1,202 @@
-extends layout
 
+extends layout
+	
+
+block sidebar
+	ul.collection.mainMenu
+		li.collection-item#first.tooltipped.active(data-position='right' data-tooltip='Contatti')
+			i.fa-3x.fa.fa-street-view 
+			
+		li.collection-item#month-picker.tooltipped(data-position='right' data-tooltip='Calendario')
+			i.fa-3x.fa.fa-calendar 
+			
+		li.collection-item#newScheda.tooltipped(data-position='right' data-tooltip='Nuova Scheda')
+			
+			| <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 428.636 428.636" style="enable-background:new 16 180 160 0 0 428.636 428.636; width:50px; margin: 0px -5px -10px -6px; " xml:space="preserve"> <path id="XMLID_908_" d="M89.838,150.039c0,5.247-4.253,9.5-9.5,9.5H41.071c-5.247,0-9.5-4.253-9.5-9.5s4.253-9.5,9.5-9.5h39.267 C85.585,140.539,89.838,144.792,89.838,150.039z M292.56,159.539h39.269c5.247,0,9.5-4.253,9.5-9.5s-4.253-9.5-9.5-9.5H292.56 c-5.247,0-9.5,4.253-9.5,9.5S287.313,159.539,292.56,159.539z M96.384,198.216h-71.36c-2.52,0-4.936-1.001-6.718-2.782 L2.783,179.909C1.001,178.127,0,175.711,0,173.191V50.627c0-2.52,1.001-4.936,2.783-6.718l15.524-15.524 c1.782-1.781,4.198-2.782,6.718-2.782h71.36c2.52,0,4.936,1.001,6.717,2.782l15.524,15.524c1.782,1.782,2.783,4.198,2.783,6.718 v26.18H251.49v-26.18c0-2.52,1.001-4.936,2.782-6.718l15.524-15.524c1.782-1.781,4.198-2.782,6.718-2.782h71.359 c2.52,0,4.936,1.001,6.718,2.782l15.524,15.524c1.782,1.781,2.783,4.198,2.783,6.718v122.564c0,2.52-1.001,4.937-2.783,6.718 l-15.524,15.524c-1.782,1.781-4.198,2.782-6.718,2.782h-71.359c-2.52,0-4.936-1.001-6.718-2.782l-15.524-15.524 c-1.781-1.782-2.782-4.198-2.782-6.718v-26.18H121.409v26.18c0,2.52-1.001,4.936-2.783,6.718l-15.524,15.524 C101.32,197.215,98.904,198.216,96.384,198.216z M270.49,169.257l9.959,9.959h63.49l9.96-9.96V54.562l-9.96-9.96h-63.49 l-9.959,9.959V169.257z M121.409,128.011h16.522v-10.595c0-5.247,4.253-9.5,9.5-9.5s9.5,4.253,9.5,9.5v10.595h14.444v-10.595
+			|	c0-5.247,4.253-9.5,9.5-9.5s9.5,4.253,9.5,9.5v10.595h14.442v-10.595c0-5.247,4.253-9.5,9.5-9.5c5.247,0,9.5,4.253,9.5,9.5v10.595
+			|	h27.673V95.806H121.409V128.011z M92.449,179.216l9.959-9.959V54.561l-9.959-9.959h-63.49L19,54.562v114.694l9.959,9.959H92.449z
+			|	 M428.636,255.445V378.01c0,2.52-1.001,4.937-2.783,6.718l-15.526,15.524c-1.781,1.781-4.197,2.782-6.717,2.782h-71.358
+			|	c-2.52,0-4.936-1.001-6.718-2.782l-15.524-15.524c-1.781-1.782-2.782-4.198-2.782-6.718v-26.18H177.146v26.18
+			|	c0,2.52-1.001,4.936-2.782,6.718l-15.525,15.524c-1.781,1.781-4.198,2.782-6.717,2.782H80.76c-2.52,0-4.937-1.001-6.718-2.783
+			|	L58.52,384.726c-1.782-1.781-2.782-4.197-2.782-6.717V255.445c0-2.52,1-4.936,2.782-6.717l15.522-15.524
+			|	c1.781-1.782,4.198-2.783,6.718-2.783h71.362c2.52,0,4.936,1.001,6.717,2.782l15.525,15.524c1.781,1.782,2.782,4.198,2.782,6.718
+			|	v26.18h130.081v-26.18c0-2.52,1.001-4.936,2.782-6.718l15.524-15.524c1.782-1.781,4.198-2.782,6.718-2.782h71.358
+			|	c2.52,0,4.936,1.001,6.717,2.782l15.526,15.524C427.635,250.509,428.636,252.926,428.636,255.445z M158.146,259.38l-9.959-9.959
+			|	H84.695l-9.958,9.959v114.695l9.958,9.959h63.492l9.959-9.959V259.38z M307.227,300.625H177.146v32.205h16.522v-10.595
+			|	c0-5.247,4.253-9.5,9.5-9.5s9.5,4.253,9.5,9.5v10.595h14.443v-10.595c0-5.247,4.253-9.5,9.5-9.5s9.5,4.253,9.5,9.5v10.595h14.442
+			|	v-10.595c0-5.247,4.253-9.5,9.5-9.5s9.5,4.253,9.5,9.5v10.595h27.674V300.625z M409.636,259.381l-9.961-9.96h-63.489l-9.959,9.959
+			|	v114.695l9.959,9.959h63.489l9.961-9.96V259.381z M387.565,345.356h-39.269c-5.247,0-9.5,4.253-9.5,9.5s4.253,9.5,9.5,9.5h39.269
+			|	c5.247,0,9.5-4.253,9.5-9.5S392.812,345.356,387.565,345.356z M136.076,345.356H96.808c-5.247,0-9.5,4.253-9.5,9.5
+			|	s4.253,9.5,9.5,9.5h39.268c5.247,0,9.5-4.253,9.5-9.5S141.322,345.356,136.076,345.356z"/></svg>
 block content
-  h1= title
-  p Welcome to #{title}
+	.first
+		.row(ng-hide='clients')
+			.animazioneContainer.col.s4
+				i.preloader.valign-wrapper
+		.row(ng-hide='clients')
+			.caricamento.col.s4
+				p.center Caricamento clienti
+		.contacts.col.s4(ng-show='clients')#contactsList
+			table.striped
+				thead
+					tr
+						th(data-field='Avatar') Avatar 
+						th(data-field='Nome') Nome
+						th(data-field='Cognome') Cognome
+						th(data-field='Peso') Peso
+						th(data-field='Attivo') Attivo
+						th(data-field='Fine Scheda') Fine Scheda
+						th(data-field='Fine Scheda') Modifica
+						th(data-field='Fine Scheda') Elimina
+						
+						
+				tbody
+					tr(ng-repeat='client in clients').repeat-client
+						td 
+							img.circle.responsive-img(ng-src='uploads/{{client.avatar}}')
+						td {{client.nome}}
+						td {{client.cognome}}
+						td {{client.peso}} kg
+						td Si
+						td 24/5
+						td
+							i(ng-click='clients.selected = client', data-target="#showInfo").fa.fa-pencil
+						td
+							i(ng-click='removeClient(client)').material-icons delete
+		//info Cliente
+		.contacts.col.s8#showInfo(ng-show='clients.selected') 
+			.col.s3
+				img(ng-src='uploads/{{clients.selected.avatar}}').responsive-img
+				- var cl = "clients.selected."
+				h4.center(contenteditable='true', ng-model=cl+'nome')
+				h4.center(contenteditable='true', ng-model= cl+'cognome')
+				
+				table.striped
+					thead 
+						tr
+							th(data-field='peso') Peso Kg
+							th(data-field='altezza') Altezza Cm
+					tbody
+						tr
+							td(contenteditable='true', ng-model= cl+'peso')
+							td(contenteditable='true', ng-model= cl+'altezza')
+				br
+				table.striped Frequenza cardiaca {{clients.selected.frequenza}}
+					thead 
+						tr
+							th(data-field='Tipo') Tipo
+							th(data-field='min') Minima
+							th(data-field='max') Massima
+					tbody
+						tr
+							td Lipidica
+							td {{clients.selected.lipmin}}
+							td {{clients.selected.lipmax}}
+						tr
+							td Aerobica
+							td {{clients.selected.aeromin}}
+							td {{clients.selected.aeromax}}
+						tr
+							td Anaerobica
+							td {{clients.selected.aneromin}}
+							td {{clients.selected.aneromax}}
+				p.info Telefono:
+					i.material-icons.left phone
+				p(contenteditable='true', ng-model= cl+'telefono')
+				p.info Email:
+					i.material-icons.left email
+				p(contenteditable='true', ng-model= cl+'mail')
+				button(ng-click='update()').btn.waves-effect.waves-light.backtwo Submit
+					i.material-icons.right send
+			//- .new(ng-repeat='client in clients')
+			//- 	.contain.yellowfont.card
+			//- 		.person.card-image
+			//- 			img.activator(ng-src='uploads/{{client.avatar}}')
+			//- 		.card-content
+			//- 			span.card-title.activator {{client.nome}}
+			//- 			br
+			//- 			span.card-title.activator {{client.cognome}}
+			
+			
+			
+		//- Inizio calendario 
+	.month-picker.hide
+		fieldset.month-picker-fieldset
+			input(type="radio" name="month" value="jan" id="jan")
+			label(for="jan").month-picker-label Jan
+			input(type="radio" name="month" value="feb" id="feb")
+			label(for="feb").month-picker-label Feb
+			input(type="radio" name="month" value="mar" id="mar")
+			label(for="mar").month-picker-label Mar
+			input(type="radio" name="month" value="apr" id="apr")
+			label(for="apr").month-picker-label Apr
+			input(type="radio" name="month" value="may" id="may")
+			label(for="may").month-picker-label May
+			input(type="radio" name="month" value="jun" id="jun")
+			label(for="jun").month-picker-label Jun
+			input(type="radio" name="month" value="jul" id="jul")
+			label(for="jul").month-picker-label Jul
+			input(type="radio" name="month" value="aug" id="aug")
+			label(for="aug").month-picker-label Aug
+			input(type="radio" name="month" value="sep" id="sep")
+			label(for="sep").month-picker-label Sep
+			input(type="radio" name="month" value="oct" id="oct")
+			label(for="oct").month-picker-label Oct
+			input(type="radio" name="month" value="nov" id="nov")
+			label(for="nov").month-picker-label Nov
+			input(type="radio" name="month" value="dec" id="dec")
+			label(for="dec").month-picker-label Dec
+	.newScheda.hide
+		.col.s4#list-esercizi
+			ul.tabs
+				li.tab.col6
+					a(href='#Fronte').active Fronte
+				li.tab.col6
+					a(href='#Dorso')|Dorso
+			#Fronte
+				ul.collapsible(data-collapsible='expandable')
+					for img, type in files
+						li
+							.collapsible-header
+								p=type
+							.collapsible-body
+								ul(id=type)
+									for file in img
+										li 
+											img(src='../images/Esercizi'+file)
+			#Dorso
+				
+		.col.s8
+	block out
+		#annotator.fixed-action-btn
+			a(href='#addClient').modal-trigger: button.btn-floating.btn-large.navcolor: i.large.mdi-content-add
+		#addClient.modal
+			.modal-content
+				mixin inputdiv(icon, field)
+								.row
+									.input-field
+										i.material-icons.prefix= icon
+										input.validate(id= field
+										type='text'
+										name= field
+										ng-model='formData.'+field
+										)
+										label(for='icon_prefix')= field
+				.row.clientInfo.white
+							form#newClient(enctype="multipart/form-data")
+								+inputdiv('account_circle', 'nome' )
+								+inputdiv('account_circle', 'cognome' )
+								+inputdiv('phone', 'telefono')
+								+inputdiv('mail', 'mail') 
+								//- inserire thumb
+								+inputdiv('room', 'peso')
+								+inputdiv('room', 'altezza')
+								+inputdiv('room', "eta")
+								+inputdiv('room', 'note')
+								.file-field.input-field
+									.btn
+										span Avatar
+										input(type="file", name="sampleFile" file-model='sampleFile' )
+
+								button(ng-click='createClient()').btn.waves-effect.waves-light.right Submit
+									i.material-icons.right send

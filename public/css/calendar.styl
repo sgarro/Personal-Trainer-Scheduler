@@ -1,0 +1,66 @@
+
+// Start Calendar Card
+.month-picker
+  text-align: center;
+  margin: 10px;
+  fieldset
+    border 0
+.month-picker-fieldset
+  display: inline-block;
+  padding: 0 7px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+.month-picker-fieldset > input
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+.month-picker-label, .month-picker-nav
+  display: inline-block;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 25px;
+  vertical-align: top;
+  cursor: pointer;
+input:focus + .month-picker-label, .month-picker-nav:focus
+  outline: 2px solid #5e9ed7;
+  outline: 5px auto -webkit-focus-ring-color;
+.month-picker-label
+  position: relative;
+  padding: 0 7px;
+  font-size: 12px;
+  font-weight: 200;
+  color: #8d8ba6;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px black;
+.month-picker-label, .month-picker-label:before
+  -webkit-transition: 0.15s ease-out;
+  -moz-transition: 0.15s ease-out;
+  -o-transition: 0.15s ease-out;
+  transition: 0.15s ease-out;
+.month-picker-label:before
+  content: '';
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  border: 2px solid;
+  border-color: #e4e0fb #b6b1d1 #b6b1d1;
+  border-radius: 6px;
+  opacity: 0;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+input:checked + .month-picker-label
+  color: white;
+  background: back
+input:checked + .month-picker-label:before
+  opacity: 1;
+.month-picker-nav
+  width: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.1);
+// End Calendar Card

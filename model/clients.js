@@ -6,6 +6,7 @@ var clientSchema = new mongoose.Schema ({
 			altezza: Number,
 			peso: Number,
 			telefono: Number,
+			mail: String,
 			note: String,
 			frequenza: Number,
 			lipmin: Number,

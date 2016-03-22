@@ -14,6 +14,7 @@
     "start": "nodewebkit"
   },
   "dependencies": {
+    "angular-file-upload": "^2.2.0",
     "body-parser": "^1.14.1",
     "diskdb": "^0.1.14",
     "express": "^4.10.4",
