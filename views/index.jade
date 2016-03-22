@@ -1,9 +1,10 @@
-extends layout
 
+extends layout
+	
 
 block sidebar
 	ul.collection.mainMenu
-		li.collection-item#contacts.tooltipped.active(data-position='right' data-tooltip='Contatti')
+		li.collection-item#first.tooltipped.active(data-position='right' data-tooltip='Contatti')
 			i.fa-3x.fa.fa-street-view 
 			
 		li.collection-item#month-picker.tooltipped(data-position='right' data-tooltip='Calendario')
@@ -28,87 +29,97 @@ block sidebar
 			|	c5.247,0,9.5-4.253,9.5-9.5S392.812,345.356,387.565,345.356z M136.076,345.356H96.808c-5.247,0-9.5,4.253-9.5,9.5
 			|	s4.253,9.5,9.5,9.5h39.268c5.247,0,9.5-4.253,9.5-9.5S141.322,345.356,136.076,345.356z"/></svg>
 block content
-	.row(ng-hide='clients')
-		.animazioneContainer.col.s4
-			i.preloader.valign-wrapper
-	.row(ng-hide='clients')
-		.caricamento.col.s4
-			p.center Caricamento clienti
-	.contacts.col.s4(ng-show='clients')
-		table.striped
-			thead
-				tr
-					th(data-field='Avatar') Avatar 
-					th(data-field='Nome') Nome
-					th(data-field='Cognome') Cognome
-					th(data-field='Peso') Peso
-					th(data-field='Attivo') Attivo
-					th(data-field='Fine Scheda') Fine Scheda
-					th(data-field='Fine Scheda') Modifica
-					th(data-field='Fine Scheda') Elimina
-					
-					
-			tbody
-				tr(ng-repeat='client in clients').repeat-client
-					td 
-						img.circle.responsive-img(ng-src='uploads/{{client.avatar}}')
-					td {{client.nome}}
-					td {{client.cognome}}
-					td {{client.peso}}
-					td Si
-					td 24/5
-					td
-						i(ng-click='clients.selected = client', data-target="#showInfo").fa.fa-pencil
-					td
-						i(ng-click='removeClient(client)').material-icons delete
-	//info Cliente
-	.contacts.col.s8#showInfo(ng-show='clients.selected') 
-		.col.s3
-			img(ng-src='uploads/{{clients.selected.avatar}}').responsive-img
-			
-			p.center {{clients.selected.nome}} {{clients.selected.cognome}}
-			
+	.first
+		.row(ng-hide='clients')
+			.animazioneContainer.col.s4
+				i.preloader.valign-wrapper
+		.row(ng-hide='clients')
+			.caricamento.col.s4
+				p.center Caricamento clienti
+		.contacts.col.s4(ng-show='clients')#contactsList
 			table.striped
-				thead 
+				thead
 					tr
-						th(data-field='peso') Peso
-						th(data-field='altezza') Altezza
+						th(data-field='Avatar') Avatar 
+						th(data-field='Nome') Nome
+						th(data-field='Cognome') Cognome
+						th(data-field='Peso') Peso
+						th(data-field='Attivo') Attivo
+						th(data-field='Fine Scheda') Fine Scheda
+						th(data-field='Fine Scheda') Modifica
+						th(data-field='Fine Scheda') Elimina
+						
+						
 				tbody
-					tr
-						td {{clients.selected.peso}} kg
-						td {{clients.selected.altezza}} cm
-			br
-			table.striped Frequenza cardiaca {{clients.selected.frequenza}}
-				thead 
-					tr
-						th(data-field='Tipo') Tipo
-						th(data-field='min') Minima
-						th(data-field='max') Massima
-				tbody
-					tr
-						td Lipidica
-						td {{clients.selected.lipmin}}
-						td {{clients.selected.lipmax}}
-					tr
-						td Aerobica
-						td {{clients.selected.aeromin}}
-						td {{clients.selected.aeromax}}
-					tr
-						td Anaerobica
-						td {{clients.selected.aneromin}}
-						td {{clients.selected.aneromax}}
+					tr(ng-repeat='client in clients').repeat-client
+						td 
+							img.circle.responsive-img(ng-src='uploads/{{client.avatar}}')
+						td {{client.nome}}
+						td {{client.cognome}}
+						td {{client.peso}} kg
+						td Si
+						td 24/5
+						td
+							i(ng-click='clients.selected = client', data-target="#showInfo").fa.fa-pencil
+						td
+							i(ng-click='removeClient(client)').material-icons delete
+		//info Cliente
+		.contacts.col.s8#showInfo(ng-show='clients.selected') 
+			.col.s3
+				img(ng-src='uploads/{{clients.selected.avatar}}').responsive-img
+				- var cl = "clients.selected."
+				h4.center(contenteditable='true', ng-model=cl+'nome')
+				h4.center(contenteditable='true', ng-model= cl+'cognome')
+				
+				table.striped
+					thead 
+						tr
+							th(data-field='peso') Peso Kg
+							th(data-field='altezza') Altezza Cm
+					tbody
+						tr
+							td(contenteditable='true', ng-model= cl+'peso')
+							td(contenteditable='true', ng-model= cl+'altezza')
+				br
+				table.striped Frequenza cardiaca {{clients.selected.frequenza}}
+					thead 
+						tr
+							th(data-field='Tipo') Tipo
+							th(data-field='min') Minima
+							th(data-field='max') Massima
+					tbody
+						tr
+							td Lipidica
+							td {{clients.selected.lipmin}}
+							td {{clients.selected.lipmax}}
+						tr
+							td Aerobica
+							td {{clients.selected.aeromin}}
+							td {{clients.selected.aeromax}}
+						tr
+							td Anaerobica
+							td {{clients.selected.aneromin}}
+							td {{clients.selected.aneromax}}
+				p.info Telefono:
+					i.material-icons.left phone
+				p(contenteditable='true', ng-model= cl+'telefono')
+				p.info Email:
+					i.material-icons.left email
+				p(contenteditable='true', ng-model= cl+'mail')
+				button(ng-click='update()').btn.waves-effect.waves-light.backtwo Submit
+					i.material-icons.right send
+			//- .new(ng-repeat='client in clients')
+			//- 	.contain.yellowfont.card
+			//- 		.person.card-image
+			//- 			img.activator(ng-src='uploads/{{client.avatar}}')
+			//- 		.card-content
+			//- 			span.card-title.activator {{client.nome}}
+			//- 			br
+			//- 			span.card-title.activator {{client.cognome}}
 			
-			p Telefono {{clients.selected.telefono}}
-			p Email {{clients.selected.email}}
-		//- .new(ng-repeat='client in clients')
-		//- 	.contain.yellowfont.card
-		//- 		.person.card-image
-		//- 			img.activator(ng-src='uploads/{{client.avatar}}')
-		//- 		.card-content
-		//- 			span.card-title.activator {{client.nome}}
-		//- 			br
-		//- 			span.card-title.activator {{client.cognome}}
-		
+			
+			
+		//- Inizio calendario 
 	.month-picker.hide
 		fieldset.month-picker-fieldset
 			input(type="radio" name="month" value="jan" id="jan")

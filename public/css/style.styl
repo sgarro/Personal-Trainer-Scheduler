@@ -28,11 +28,24 @@ pinkcard = #711254
 ::-webkit-scrollbar
     display: none;
 
+.back
+  background: back
+
+.backtwo
+  background: backtwo
+
+.backthree
+  background: backthree
+
+.backfour
+  background: backfour
 
 body
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
-  background: backfour
+  // background: backfour
+  background: #334
   color: #ddd
+  font-family: "Raleway"
   // background-image: url(http://skin.forumfree.net/2323/sfondo.png)!important
   // background-image: linear-gradient(to top right, backtwo, backfour);
 /* TODO: indent and fix this shitty css */
@@ -41,19 +54,15 @@ body
 
 @font-face
   font-family: "Dense"
-  src: url(./font/Dense-Regular.otf)
+  src: url(font/Dense-Regular.otf)
 
 @font-face
   font-family: "Raleway"
-  src: url(font/Raleway-Light.ttf)
+  src: url(font/Raleway-Thin.ttf)
 
-table
-  font-family: 'Dense'
-table.striped>tbody>tr:nth-child(odd)
-  background: backtwo
 
-body
-  font-family: "Raleway"
+
+
 
 nav
   background: backtwo
@@ -66,8 +75,6 @@ nav
   background: pinkcard
   color: yellowfont
 
-.container
-  width: 80%
 #main
   max-height 100%
   width 100%
@@ -75,15 +82,6 @@ nav
   padding 0px
   input
     width: 90%
-  .avatar img
-    height:20%
-    width: 100%
-  .element
-    padding: 5px
-    margin: 5px
-    border: 3px solid white
-    border-radius: 15px
-
 // Start Sidebar
 .side
   // border-right 1px solid rgb(34, 30, 31)
@@ -116,8 +114,6 @@ nav
   fill backthree
   color backthree
   padding-left: 30%
-  ul
-    margin-left: 20px
 #newScheda.active
     fill yellowfont
 .collapsible
@@ -133,27 +129,6 @@ nav
   height: 90%
 //End Main
 
-// Contacts card
-.contacts
-  // display: flex;
-  // flex-wrap: wrap;
-  padding: 5px;
-  position: fixed;
-  overflow: auto
-  height: 100%
-  // float: left
-  thead
-    border-bottom: 1px solid backtwo
- td
-   width: 20%
-   img
-     width: 50%
-#showInfo
-  position: relative;
-  float: right;
-  overflow-y: overlay
-  height: 100%
-  padding-left: 30px
 #scheda
   background: white
   height: 100%
@@ -211,142 +186,14 @@ nav
     box-shadow 0 1px 0 0 navcolor
     +label
       color navcolor
-// Start Calendar Card
-.month-picker
-  text-align: center;
-  margin: 10px;
-  fieldset
-    border 0
-.month-picker-fieldset
-  display: inline-block;
-  padding: 0 7px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
-  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-.month-picker-fieldset > input
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-.month-picker-label, .month-picker-nav
-  display: inline-block;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  line-height: 25px;
-  vertical-align: top;
-  cursor: pointer;
-input:focus + .month-picker-label, .month-picker-nav:focus
-  outline: 2px solid #5e9ed7;
-  outline: 5px auto -webkit-focus-ring-color;
-.month-picker-label
-  position: relative;
-  padding: 0 7px;
-  font-size: 12px;
-  font-weight: 200;
-  color: #8d8ba6;
-  text-transform: uppercase;
-  text-shadow: 0 1px 1px black;
-.month-picker-label, .month-picker-label:before
-  -webkit-transition: 0.15s ease-out;
-  -moz-transition: 0.15s ease-out;
-  -o-transition: 0.15s ease-out;
-  transition: 0.15s ease-out;
-.month-picker-label:before
-  content: '';
-  position: absolute;
-  top: -2px;
-  bottom: -2px;
-  left: -2px;
-  right: -2px;
-  border: 2px solid;
-  border-color: #e4e0fb #b6b1d1 #b6b1d1;
-  border-radius: 6px;
-  opacity: 0;
-  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-input:checked + .month-picker-label
-  color: white;
-  background: back
-input:checked + .month-picker-label:before
-  opacity: 1;
-.month-picker-nav
-  width: 25px;
-  font-size: 16px;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.7);
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 1px rgba(255, 255, 255, 0.1);
-// End Calendar Card
-
-// Start New Scheda Card
-.newScheda
-  padding 0px
-//Sidebar of excercise
-#list-esercizi
-  box-shadow ombra
-  background: rgba(0,0,0,0.2)
-  padding: 10px
-  .collapsible
-    box-shadow: none
-    background: back
-    padding: 5px
-  .collapsible-header
-    background: none
-    text-transform: capitalize;
-    border-bottom: 2px solid backtwo
-  .collapsible-body
-    border: 0
-    padding: 10px
-    box-shadow: ombra
-    ul li
-      margin-bottom: 5px
-  img
-    width: 100% !important
-  .row
-    margin-bottom: 0px
-    > div
-      padding: 0px
-  .tabs
-    background: backtwo
-  .tab.tab a.active
-    background: back
-  > div
-    margin-top: -14px
-    background: back
-.excercise-item
-  color: #fff
-  background: navcolor
-.esercizi ul li
-  border 3px solid black
-  width: 31%
-  color: white
-  display: inline-block;
-  margin: 1%
-  img
-    display: inline-block;
-    height: auto;
-    max-width: 100%;
-    vertical-align: middle;
-
-// End New Scheda Card
 
 
 
-//angular animation
-/* you can also define the transition style
-   on the base class as well (.repeat-item) */
-.repeat-client.ng-enter,
-.repeat-client.ng-leave {
-  -webkit-transition:0.5s linear all;
-  transition:0.5s linear all;
-}
 
-.repeat-client.ng-enter,
-.repeat-client.ng-leave.ng-leave-active {
-  opacity:0;
 
-}
-.repeat-client.ng-leave,
-.repeat-client.ng-enter.ng-enter-active {
-  opacity:1;
 
-}
+@import "./contacts"
+@import "./calendar"
+@import "./scheda"
+@import "./angulAnimation"
+// @import "./animations.css"

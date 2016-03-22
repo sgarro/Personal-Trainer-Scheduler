@@ -20,16 +20,16 @@ router.use(methodOverride(function(req, res){
 //build the REST operations at the base for blobs
 //this will be accessible from http://127.0.0.1:3000/blobs if the default route for / is left unchanged
 router.route('/')
-    //GET all blobs
+    //GET all clients
     .get(function(req, res, next) {
-        //retrieve all blobs from Monogo
+        //retrieve all clients from Monogo
         mongoose.model('Client').find({}, function (err, blobs) {
               if (err) {
                   return console.error(err);
               } else {
                   //respond to both HTML and JSON. JSON responses require 'Accept: application/json;' in the Request Header
                   res.format({
-                      //HTML response will render the index.jade file in the views/blobs folder. We are also setting "blobs" to be an accessible variable in our jade view
+                      //HTML response will render the index.jade file in the views/clients folder. We are also setting "blobs" to be an accessible variable in our jade view
                     html: function(){
                         res.render('clients/index', {
                               // title: 'All my Clients',
@@ -59,6 +59,7 @@ router.route('/')
         		altezza: req.body.altezza,
         		peso: req.body.peso,
         		telefono: req.body.telefono,
+                mail: req.body.mail,
         		note: req.body.note,
         		frequenza: frequenza,
         		lipmin: (frequenza*65)/100,
@@ -100,6 +101,22 @@ router.get('/new', function(req, res) {
     res.render('clients/new');
 });
 router.route('/:client_id')
+    .put(function(req,res){
+        // find document by ID
+        mongoose.model('Client').findById(req.params.client_id, function (err, client){
+            // update it
+            client.update(req.body, function(err, clientID){
+                if (err) {
+                    res.json('Error: ' +err);
+                }
+                else{
+                    res.json(client)
+                }
+            })
+        });
+
+    })
+
     .get(function(req,res){
       mongoose.model('Client').findById(req.params.client_id, function(err, client){
         if (err) {
@@ -111,7 +128,7 @@ router.route('/:client_id')
     })
   //delete client
     .delete(function(req, res) {
-      // #Done:0 Delete avatar from uploads folder
+      // #Done:40 Delete avatar from uploads folder
       mongoose.model('Client').findById(req.params.client_id, function(err, client){
           if (err) {
               res.json(err)
@@ -135,7 +152,7 @@ router.route('/:client_id')
             }
         });
      });
-// #AngularJS:0 route for edit Client info
+// #Done:20 route for edit Client info
     // .get(function(req, res){
     //   mongoose.model('Client').findById(req.params.client_id, function(err, client){
     //     if (err)
@@ -143,6 +160,6 @@ router.route('/:client_id')
     //     res.json(client);
     //   });
     // })
-// #AngularJS:10 route for show Client info
+// #Done:30 route for show Client info
 
 module.exports = router;

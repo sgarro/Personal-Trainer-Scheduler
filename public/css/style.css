@@ -1,10 +1,23 @@
 ::-webkit-scrollbar {
   display: none;
 }
+.back {
+  background: #091c28;
+}
+.backtwo {
+  background: #0a2230;
+}
+.backthree {
+  background: #0e405d;
+}
+.backfour {
+  background: #091c28;
+}
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #091c28;
+  background: #334;
   color: #ddd;
+  font-family: "Raleway";
 }
 /* TODO: indent and fix this shitty css */
 .tabs .indicator {
@@ -12,20 +25,11 @@ body {
 }
 @font-face {
   font-family: "Dense";
-  src: url("./font/Dense-Regular.otf");
+  src: url("font/Dense-Regular.otf");
 }
 @font-face {
   font-family: "Raleway";
-  src: url("font/Raleway-Light.ttf");
-}
-table {
-  font-family: 'Dense';
-}
-table.striped>tbody>tr:nth-child(odd) {
-  background: #0a2230;
-}
-body {
-  font-family: "Raleway";
+  src: url("font/Raleway-Thin.ttf");
 }
 nav {
   background: #0a2230;
@@ -38,9 +42,6 @@ nav {
   background: #711254;
   color: #3f180b;
 }
-.container {
-  width: 80%;
-}
 #main {
   max-height: 100%;
   width: 100%;
@@ -49,16 +50,6 @@ nav {
 }
 #main input {
   width: 90%;
-}
-#main .avatar img {
-  height: 20%;
-  width: 100%;
-}
-#main .element {
-  padding: 5px;
-  margin: 5px;
-  border: 3px solid #fff;
-  border-radius: 15px;
 }
 .side {
   overflow: overlay;
@@ -95,9 +86,6 @@ nav {
   color: #0e405d;
   padding-left: 30%;
 }
-#newScheda ul {
-  margin-left: 20px;
-}
 #newScheda.active {
   fill: #3f180b;
 }
@@ -109,28 +97,6 @@ nav {
   position: relative;
   padding: 0px;
   height: 90%;
-}
-.contacts {
-  padding: 5px;
-  position: fixed;
-  overflow: auto;
-  height: 100%;
-}
-.contacts thead {
-  border-bottom: 1px solid #0a2230;
-}
-td {
-  width: 20%;
-}
-td img {
-  width: 50%;
-}
-#showInfo {
-  position: relative;
-  float: right;
-  overflow-y: overlay;
-  height: 100%;
-  padding-left: 30px;
 }
 #scheda {
   background: #fff;
@@ -202,6 +168,49 @@ td img {
 }
 #newClient input:focus +label {
   color: #3f180b;
+}
+.first table {
+  font-family: 'Dense';
+}
+.first table.striped>tbody>tr:nth-child(odd) {
+  background: #0a2230;
+}
+.contacts {
+  padding: 5px;
+  position: fixed;
+  overflow: auto;
+  height: 100%;
+}
+.contacts thead {
+  border-bottom: 1px solid #0a2230;
+}
+td {
+  width: 20%;
+}
+td img {
+  width: 50%;
+}
+#contactsList {
+  border-right: 2px solid #091c28;
+}
+#showInfo {
+  position: relative;
+  float: right;
+  overflow-y: overlay;
+  height: 100%;
+  padding-left: 30px;
+  padding-top: 15px;
+}
+#showInfo img {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#showInfo .info {
+  color: #3f180b;
+  font-size: 16px !important;
+}
+#showInfo i.left {
+  margin-right: 1px;
+  font-size: 16px;
 }
 .month-picker {
   text-align: center;
@@ -343,8 +352,6 @@ input:checked + .month-picker-label:before {
   max-width: 100%;
   vertical-align: middle;
 }
-/* you can also define the transition style
-   on the base class as well (.repeat-item) */
 .repeat-client.ng-enter,
 .repeat-client.ng-leave {
   -webkit-transition: 0.5s linear all;
