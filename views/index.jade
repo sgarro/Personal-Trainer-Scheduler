@@ -32,10 +32,17 @@ block content
 	.first
 		.row(ng-hide='clients')
 			.animazioneContainer.col.s4
-				i.preloader.valign-wrapper
-		.row(ng-hide='clients')
-			.caricamento.col.s4
-				p.center Caricamento clienti
+				
+					.cs-loader-inner.yellowfont
+						label	Caricamento
+						label	●
+						label	●
+						label	●
+						label	●
+						label	●
+		//- .row(ng-hide='clients')
+		//- 	.caricamento.col.s4
+		//- 		p.center Caricamento clienti
 		.contacts.col.s4(ng-show='clients')#contactsList
 			table.striped
 				thead
@@ -64,12 +71,12 @@ block content
 						td
 							i(ng-click='removeClient(client)').material-icons delete
 		//info Cliente
-		.contacts.col.s8#showInfo(ng-show='clients.selected') 
+		.contacts.col.s8#showInfo(ng-show='clients.selected').repeat-client 
 			.col.s3
 				img(ng-src='uploads/{{clients.selected.avatar}}').responsive-img
 				- var cl = "clients.selected."
-				h4.center(contenteditable='true', ng-model=cl+'nome')
-				h4.center(contenteditable='true', ng-model= cl+'cognome')
+				h5.center(contenteditable='true', ng-model=cl+'nome')
+				h5.center(contenteditable='true', ng-model= cl+'cognome')
 				
 				table.striped
 					thead 
@@ -81,7 +88,9 @@ block content
 							td(contenteditable='true', ng-model= cl+'peso')
 							td(contenteditable='true', ng-model= cl+'altezza')
 				br
-				table.striped Frequenza cardiaca {{clients.selected.frequenza}}
+				table.striped 
+					i.fa.fa-heartbeat.fa-2x.left.yellowfont 
+					span.yellowfont Frequenza cardiaca
 					thead 
 						tr
 							th(data-field='Tipo') Tipo
@@ -100,10 +109,10 @@ block content
 							td Anaerobica
 							td {{clients.selected.aneromin}}
 							td {{clients.selected.aneromax}}
-				p.info Telefono:
+				p.info.yellowfont Telefono:
 					i.material-icons.left phone
 				p(contenteditable='true', ng-model= cl+'telefono')
-				p.info Email:
+				p.info.yellowfont Email:
 					i.material-icons.left email
 				p(contenteditable='true', ng-model= cl+'mail')
 				button(ng-click='update()').btn.waves-effect.waves-light.backtwo Submit

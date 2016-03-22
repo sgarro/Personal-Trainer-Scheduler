@@ -1,7 +1,11 @@
 // #AngularJS:10 upload avatars issue:1
 // #Done:0 get info for single client
 // #AngularJS:0 Drag n drop to create new card
-var fitnessScheduler = angular.module('fitnessScheduler', ['file-model', "ngAnimate"]);
+var fitnessScheduler = angular.module('fitnessScheduler', ['file-model', "ngAnimate", 'angular-loading-bar'])
+// .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+//     cfpLoadingBarProvider.parentSelector = '#main';
+//     cfpLoadingBarProvider.spinnerTemplate = '<div><span class="fa fa-spinner">Custom Loading Message...</div>';
+//   }]);
 
 function mainController($scope, $http) {
     // when landing on the page, get all todos and show them

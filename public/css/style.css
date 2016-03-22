@@ -14,10 +14,9 @@
   background: #091c28;
 }
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #334;
+  font: 14px "Raleway Extra", Helvetica, Arial, sans-serif;
+  background: #091c28;
   color: #ddd;
-  font-family: "Raleway";
 }
 /* TODO: indent and fix this shitty css */
 .tabs .indicator {
@@ -29,7 +28,19 @@ body {
 }
 @font-face {
   font-family: "Raleway";
-  src: url("font/Raleway-Thin.ttf");
+  src: url("font/Raleway-Regular.ttf");
+}
+@font-face {
+  font-family: "Raleway Bold";
+  src: url("font/Raleway-Bold.ttf");
+}
+@font-face {
+  font-family: "Raleway Light";
+  src: url("font/Raleway-Light.ttf");
+}
+@font-face {
+  font-family: "Raleway Extra";
+  src: url("font/Raleway-Extralight.ttf");
 }
 nav {
   background: #0a2230;
@@ -39,7 +50,6 @@ nav {
   background: #3f180b;
 }
 .yellowfont {
-  background: #711254;
   color: #3f180b;
 }
 #main {
@@ -117,7 +127,7 @@ nav {
   color: #3f180b;
 }
 .first table {
-  font-family: 'Dense';
+  font: 16px 'Dense';
 }
 .first table.striped>tbody>tr:nth-child(odd) {
   background: #0a2230;
@@ -135,13 +145,14 @@ td {
   width: 20%;
 }
 td img {
-  width: 50%;
+  width: 100%;
 }
 #contactsList {
   border-right: 2px solid #091c28;
 }
 #showInfo {
   position: relative;
+  font-family: 'Raleway Bold';
   float: right;
   overflow-y: overlay;
   height: 100%;
@@ -152,12 +163,13 @@ td img {
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
 #showInfo .info {
-  color: #3f180b;
   font-size: 16px !important;
+  font-weight: bold;
 }
-#showInfo i.left {
-  margin-right: 1px;
-  font-size: 16px;
+#showInfo .info i.left {
+  color: #3f180b;
+  margin-right: 3px;
+  font-size: 20px;
 }
 .month-picker {
   text-align: center;
