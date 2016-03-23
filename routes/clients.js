@@ -23,22 +23,22 @@ router.route('/')
     //GET all clients
     .get(function(req, res, next) {
         //retrieve all clients from Monogo
-        mongoose.model('Client').find({}, function (err, blobs) {
+        mongoose.model('Client').find({}, function (err, clients) {
               if (err) {
                   return console.error(err);
               } else {
                   //respond to both HTML and JSON. JSON responses require 'Accept: application/json;' in the Request Header
                   res.format({
-                      //HTML response will render the index.jade file in the views/clients folder. We are also setting "blobs" to be an accessible variable in our jade view
+                      //HTML response will render the index.jade file in the views/clients folder. We are also setting "clients" to be an accessible variable in our jade view
                     html: function(){
                         res.render('clients/index', {
                               // title: 'All my Clients',
-                              "db" : blobs
+                              "db" : clients
                           });
                     },
-                    //JSON response will show all blobs in JSON format
+                    //JSON response will show all clients in JSON format
                     json: function(){
-                        res.json(blobs);
+                        res.json(clients);
                     }
                 });
               }
@@ -128,7 +128,7 @@ router.route('/:client_id')
     })
   //delete client
     .delete(function(req, res) {
-      // #Done:40 Delete avatar from uploads folder
+      // #Done:110 Delete avatar from uploads folder
       mongoose.model('Client').findById(req.params.client_id, function(err, client){
           if (err) {
               res.json(err)
@@ -152,7 +152,7 @@ router.route('/:client_id')
             }
         });
      });
-// #Done:20 route for edit Client info
+// #Done:70 route for edit Client info
     // .get(function(req, res){
     //   mongoose.model('Client').findById(req.params.client_id, function(err, client){
     //     if (err)
@@ -160,6 +160,6 @@ router.route('/:client_id')
     //     res.json(client);
     //   });
     // })
-// #Done:30 route for show Client info
+// #Done:90 route for show Client info
 
 module.exports = router;

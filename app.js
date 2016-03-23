@@ -5,14 +5,16 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     multer = require('multer');
-// TODO:20 routes and models for cards
+// #Done:30 routes and models for cards
 var db = require('./model/db'),
     blob = require('./model/blobs'),
     client = require('./model/clients');
+    card = require('./model/cards');
 
 var routes = require('./routes/index'),
     blobs = require('./routes/blobs'),
     clients = require('./routes/clients');
+    cards = require('./routes/cards');
 
 //var users = require('./routes/users');
 
@@ -52,7 +54,7 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use('/', routes);
 app.use('/blobs', blobs);
 app.use('/clients', clients);
-// app.use('/cards', cards);
+app.use('/cards', cards);
 //app.use('/users', users);
 
 // catch 404 and forward to error handler

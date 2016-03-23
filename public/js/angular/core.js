@@ -1,5 +1,5 @@
 // #AngularJS:10 upload avatars issue:1
-// #Done:0 get info for single client
+// #Done:40 get info for single client
 // #AngularJS:0 Drag n drop to create new card
 var fitnessScheduler = angular.module('fitnessScheduler', ['file-model', "ngAnimate", 'angular-loading-bar'])
 // .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
@@ -56,7 +56,7 @@ function mainController($scope, $http) {
                 window.alert('Error: ' + data);
             });
     };
-    // #Done:10 edit client info
+    // #Done:50 edit client info
     $scope.update = function(){
         var client = $scope.clients.selected
         $http.put('/clients/' +client._id, client)

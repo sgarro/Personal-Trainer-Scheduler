@@ -1,0 +1,13 @@
+extends ../layout
+//#TODO:0 fix form
+block content
+	h3=title
+	form#newScheda(method='post', action='/cards', enctype='multipart/form-data')
+		input.validate(id='nome', type='text', name='nome')
+		input.validate(id='giorno', type='text', name='giorno')
+		input.validate(id='nomeEsercizio', type='text', name='nomeEsercizio')
+		input.validate(id='ripetizioni', type='number', name='ripetizioni')
+		input.validate(id='peso', type='number', name='peso')
+		input.validate(id='inizio', type='date', name='inizio')
+		input.validate(id='fine', type='date', name='fine')
+		button.btn.waves-effect.waves-light.right Submit

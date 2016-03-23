@@ -27,10 +27,14 @@
     },
     {
       "name": "AngularJS",
-      "hidden": false
+      "hidden": true
     },
     {
       "name": "Done",
+      "hidden": false
+    },
+    {
+      "name": "OPTIONAL",
       "hidden": true
     }
   ],
