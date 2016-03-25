@@ -31,7 +31,7 @@ router.route('/')
                   res.format({
                       //HTML response will render the index.jade file in the views/clients folder. We are also setting "clients" to be an accessible variable in our jade view
                     html: function(){
-                        res.render('cards/index', {
+                        res.render('cards/new', {
                               // title: 'All my Clients',
                               "title" : 'cards'
                           });

@@ -1,0 +1,99 @@
+.first.hide
+	.row(ng-hide='clients')
+		.animazioneContainer.col.s4
+			
+				.cs-loader-inner.yellowfont
+					label	Caricamento
+					label	●
+					label	●
+					label	●
+					label	●
+					label	●
+	//- .row(ng-hide='clients')
+	//- 	.caricamento.col.s4
+	//- 		p.center Caricamento clienti
+	.contacts.col.s4(ng-show='clients')#contactsList
+		table.striped
+			thead
+				tr
+					th(data-field='Avatar') Avatar 
+					th(data-field='Nome') Nome
+					th(data-field='Cognome') Cognome
+					th(data-field='Peso') Peso
+					th(data-field='Attivo') Attivo
+					th(data-field='Fine Scheda') Fine Scheda
+					th(data-field='Fine Scheda') Modifica
+					th(data-field='Fine Scheda') Elimina
+					
+					
+			tbody
+				tr(ng-repeat='client in clients').repeat-client
+					td 
+						img.circle.responsive-img(ng-src='uploads/{{client.avatar}}')
+					td {{client.nome}}
+					td {{client.cognome}}
+					td {{client.peso}} kg
+					td Si
+					td 24/5
+					td
+						i(ng-click='clients.selected = client', data-target="#showInfo").fa.fa-pencil
+					td
+						i(ng-click='removeClient(client)').material-icons delete
+	//info Cliente
+	.contacts.col.s8#showInfo(ng-show='clients.selected').repeat-client 
+		.col.s3
+			img(ng-src='uploads/{{clients.selected.avatar}}').responsive-img
+			- var cl = "clients.selected."
+			h5.center(contenteditable='true', ng-model=cl+'nome')
+			h5.center(contenteditable='true', ng-model= cl+'cognome')
+			
+			table.striped
+				thead 
+					tr
+						th(data-field='peso') Peso Kg
+						th(data-field='altezza') Altezza Cm
+				tbody
+					tr
+						td(contenteditable='true', ng-model= cl+'peso')
+						td(contenteditable='true', ng-model= cl+'altezza')
+			br
+			table.striped 
+				i.fa.fa-heartbeat.fa-2x.left.yellowfont 
+				span.yellowfont Frequenza cardiaca
+				thead 
+					tr
+						th(data-field='Tipo') Tipo
+						th(data-field='min') Minima
+						th(data-field='max') Massima
+				tbody
+					tr
+						td Lipidica
+						td {{clients.selected.lipmin}}
+						td {{clients.selected.lipmax}}
+					tr
+						td Aerobica
+						td {{clients.selected.aeromin}}
+						td {{clients.selected.aeromax}}
+					tr
+						td Anaerobica
+						td {{clients.selected.aneromin}}
+						td {{clients.selected.aneromax}}
+			p.info.yellowfont Telefono:
+				i.material-icons.left phone
+			p(contenteditable='true', ng-model= cl+'telefono')
+			p.info.yellowfont Email:
+				i.material-icons.left email
+			p(contenteditable='true', ng-model= cl+'mail')
+			button(ng-click='update()').btn.waves-effect.waves-light.backtwo Submit
+				i.material-icons.right send
+		//- .new(ng-repeat='client in clients')
+		//- 	.contain.yellowfont.card
+		//- 		.person.card-image
+		//- 			img.activator(ng-src='uploads/{{client.avatar}}')
+		//- 		.card-content
+		//- 			span.card-title.activator {{client.nome}}
+		//- 			br
+		//- 			span.card-title.activator {{client.cognome}}
+		
+		
+		

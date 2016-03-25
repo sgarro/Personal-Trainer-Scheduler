@@ -75,3 +75,9 @@ $(document).on('click', '.mainMenu li', function() {
 //         }
 //       });
 //     }
+function addDay(num){
+  console.log(num)
+  console.log(typeof(num))
+  $('.newDay').parent().remove()
+  $('.cardScheduler').append('<div class="row"><h3>Giorno '+num+'</h3></div><div class="row" id="#giorno_'+num+'"></div><div class="row"><h3 class="newDay">Aggiungi Giorno <i class="fa fa-plus-square left" onclick="addDay('+(num+1)+')"></h3></div></div>')
+}
