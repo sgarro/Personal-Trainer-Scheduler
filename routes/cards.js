@@ -23,7 +23,7 @@ router.route('/')
     //GET all clients
     .get(function(req, res, next) {
         //retrieve all clients from Monogo
-        mongoose.model('Client').find({}, function (err, clients) {
+        mongoose.model('Card').find({}, function (err, cards) {
               if (err) {
                   return console.error(err);
               } else {
@@ -38,7 +38,7 @@ router.route('/')
                     },
                     //JSON response will show all clients in JSON format
                     json: function(){
-                        res.json(clients);
+                        res.json(cards);
                     }
                 });
               }

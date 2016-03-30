@@ -57,7 +57,7 @@ function mainController($scope, $http) {
             });
     };
     // #Done:50 edit client info
-    $scope.update = function(){
+    $scope.updateClient = function(){
         var client = $scope.clients.selected
         $http.put('/clients/' +client._id, client)
             .success(function(data) {
@@ -67,6 +67,49 @@ function mainController($scope, $http) {
                 console.log('Error: ' + data);
             });
         };
+
+    $scope.createCard = function() {
+    //#AngularJS:20 validate form
+        console.log($scope.newScheda)
+        // $http.post('/clients', $scope.formData)
+        //     .success(function(data) {
+        //         $scope.formData = {}; // clear the form so our user is ready to enter another
+        //         $scope.clients.push(data);
+        //         console.log(data);
+        //         console.log($scope.clients)
+        //         $('#addClient').closeModal();
+        //     })
+        //     .error(function(data) {
+        //         console.log('Error: ' + data);
+        //     });
+    };
+
+
+    //get all cards
+    // $scope.getCard = function() {
+    //     $http.get('/cards')
+    //         .success(function(data) {
+    //             $scope.cards = data;
+    //             console.log(data);
+    //         })
+    //         .error(function(data) {
+    //             console.log('Error: ' + data);
+    //         });
+    //
+    //
+    //
+    //
+    // };
+    $http.get('/cards')
+        .success(function(data) {
+            $scope.cards = data;
+            console.log(data);
+            // $('select').material_select();
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        });
+        $scope.selectedCard = null
 }
 
 

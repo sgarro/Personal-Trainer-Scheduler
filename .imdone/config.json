@@ -31,11 +31,11 @@
     },
     {
       "name": "Done",
-      "hidden": false
+      "hidden": true
     },
     {
       "name": "OPTIONAL",
-      "hidden": true
+      "hidden": false
     }
   ],
   "marked": {

@@ -84,7 +84,7 @@
 			p.info.yellowfont Email:
 				i.material-icons.left email
 			p(contenteditable='true', ng-model= cl+'mail')
-			button(ng-click='update()').btn.waves-effect.waves-light.backtwo Submit
+			button(ng-click='updateClient()').btn.waves-effect.waves-light.backtwo Submit
 				i.material-icons.right send
 		//- .new(ng-repeat='client in clients')
 		//- 	.contain.yellowfont.card
@@ -95,5 +95,36 @@
 		//- 			br
 		//- 			span.card-title.activator {{client.cognome}}
 		
-		
+	#annotator.fixed-action-btn
+		a(href='#addClient').modal-trigger: button.btn-floating.btn-large.navcolor: i.large.mdi-content-add
+	#addClient.modal
+		.modal-content
+			mixin inputdiv(icon, field)
+							.row
+								.input-field
+									i.material-icons.prefix= icon
+									input.validate(id= field
+									type='text'
+									name= field
+									ng-model='formData.'+field
+									)
+									label(for='icon_prefix')= field
+			.row.clientInfo.white
+						form#newClient(enctype="multipart/form-data")
+							+inputdiv('account_circle', 'nome' )
+							+inputdiv('account_circle', 'cognome' )
+							+inputdiv('phone', 'telefono')
+							+inputdiv('mail', 'mail') 
+							//- inserire thumb
+							+inputdiv('room', 'peso')
+							+inputdiv('room', 'altezza')
+							+inputdiv('room', "eta")
+							+inputdiv('room', 'note')
+							.file-field.input-field
+								.btn
+									span Avatar
+									input(type="file", name="sampleFile" file-model='sampleFile' )
+
+							button(ng-click='createClient()').btn.waves-effect.waves-light.right Submit
+								i.material-icons.right send
 		

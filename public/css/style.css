@@ -94,7 +94,8 @@ nav {
   background-repeat: no-repeat;
   fill: #0e405d;
   color: #0e405d;
-  padding-left: 30%;
+  padding-left: 25%;
+  height: 63px;
 }
 #newScheda.active {
   fill: #3f180b;
@@ -308,7 +309,6 @@ input:checked + .month-picker-label:before {
 }
 .cardScheduler {
   overflow: auto;
-  padding-left: 40px !important;
   height: 92%;
   float: right !important;
 }
@@ -340,18 +340,6 @@ input:checked + .month-picker-label:before {
   margin: 10px 0 0 2%;
   flex-grow: 1;
   width: calc(100% * (1 / 5) - 10px - 1px);
-}
-@include max-width(992px) {
-  .excercise-item {
-    flex-basis: 25%;
-    background: #f00;
-  }
-}
-@include max-width(640px) {
-  .excercise-item {
-    flex-basis: 50%;
-    background: #008000;
-  }
 }
 .repeat-client.ng-enter,
 .repeat-client.ng-leave {
