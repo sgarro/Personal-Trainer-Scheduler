@@ -90,15 +90,18 @@ function mainController($scope, $http) {
 
     $scope.esercizi = [];
     // TODO:0 scope giornata: puntatore a giornata corrente con click sui titoli
-    g = -1
+
+    $scope.pointer = 0;
     $scope.giornate=[];
+    $scope.giornate[0] = {'nome' : 'Riscaldamento', esercizi : []}
     $scope.addExcercise = function (file){
         // $scope.giornata = ''
         //
         // $scope.card = ''
         console.log(file)
         esercizio = {'tipo': file}
-        console.log($scope.giornate[g])
+        console.log('LUNGHEZZA')
+        g = $scope.pointer
         console.log(g)
         $scope.giornate[g].esercizi.push(esercizio)
         // console.log('ESERCIZI')
@@ -109,12 +112,17 @@ function mainController($scope, $http) {
     //   console.log($scope.giornate)
   };
 
+  $scope.selectDay = function(index){
+     $scope.pointer = index;
+     console.log(index)
+     console.log($scope.pointer)
+  };
 
   $scope.addDay = function(){
-      g++
-      giornata = {'id' : g, esercizi : []}
+      $scope.pointer = $scope.giornate.length
+      giornata = {'nome' : 'Giorno '+$scope.giornate.length, esercizi : []}
       $scope.giornate.push(giornata)
-      console.log($scope.giornate[0])
+
 
 
 

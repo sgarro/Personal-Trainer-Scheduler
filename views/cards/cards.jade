@@ -22,10 +22,30 @@
     form#formScheda
       input(id='cardName', type='text', name='cardName', ng-model='card', placeholder='Titolo Nuova Scheda')
       //- input(type='text' ng-model='giornata')
+    .row(id='riscaldamento')
+      h3(ng-click='selectDay(0)') {{giornate[0].nome}}
+      .excercise-item(ng-repeat='esercizio in giornate[0].esercizi')
+             table
+                thead Tipo:
+                  input(ng-model='esercizio.nome')
+                  tr
+                    th ripetizioni
+                    th peso
+                    th pausa
+                tbody
+                  tr
+                    td
+                      input(ng-model='esercizio.ripetizioni')
+                    td 
+                      input(ng-model='esercizio.peso')
+                    td 
+                      input(ng-model='esercizio.pausa')
+              .img-excercise
+               .img.valign-wrapper
+                 img(ng-src='../images/Esercizi{{esercizio.tipo}}')   
     
-    
-    .row(ng-repeat='giorno in giornate')
-      h3 Giorno {{giorno.id}}
+    .row(ng-repeat='giorno in giornate' ng-if='$index > 0')
+      h3(ng-click='selectDay($index)') {{giorno.nome}}
       .excercise-item(ng-repeat='esercizio in giorno.esercizi')
              table
                 thead Tipo:
