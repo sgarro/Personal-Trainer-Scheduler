@@ -65,6 +65,9 @@
       cursor: pointer;
   img
     width: 100%
+
+  .row.selected
+    background-color: backtwo
   .excercises
     display: flex;
     align-items: center;
@@ -84,11 +87,14 @@
     // // height: 500px
     // border 1px solid black
     display: inline-block;
-    background:blue;
-    margin:10px 0 0 2%;
+
+    margin:10px 0 0 1%;
     flex-grow: 1;
+    border: 2px solid backthree
+    border-radius: 5px
+    padding: 5px
     // height:100px;
-    width: calc(100% * (1/5) - 10px - 1px);
+    width: calc(100% * (1/4) - 10px - 1px);
   // .img-excercise
   //   img
   //     width 205px
@@ -103,3 +109,5 @@
 //   .excercise-item
 //     flex-basis 50%
 //     background: green
+  input
+    background: none

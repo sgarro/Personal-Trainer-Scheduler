@@ -95,27 +95,15 @@ function mainController($scope, $http) {
     $scope.giornate=[];
     $scope.giornate[0] = {'nome' : 'Riscaldamento', esercizi : []}
     $scope.addExcercise = function (file){
-        // $scope.giornata = ''
-        //
-        // $scope.card = ''
-        console.log(file)
+
         esercizio = {'tipo': file}
         console.log('LUNGHEZZA')
         g = $scope.pointer
-        console.log(g)
         $scope.giornate[g].esercizi.push(esercizio)
-        // console.log('ESERCIZI')
-        // console.log($scope.esercizi)
-        // $scope.card.giornate[0].push($scope.esercizi)
-
-        // console.log($scope.card)
-    //   console.log($scope.giornate)
   };
 
   $scope.selectDay = function(index){
      $scope.pointer = index;
-     console.log(index)
-     console.log($scope.pointer)
   };
 
   $scope.addDay = function(){
@@ -127,6 +115,16 @@ function mainController($scope, $http) {
 
 
   };
+
+  $scope.saveCard = function(){
+    console.log('NOME CARD')
+    console.log($scope.card)
+    card = $scope.card
+    card.giornate = $scope.giornate
+    // console.log($.extend($scope.card, $scope.giornate))
+    // TODO: inviare al server
+    console.log(card)
+  }
     //get all cards
     // $scope.getCard = function() {
     //     $http.get('/cards')

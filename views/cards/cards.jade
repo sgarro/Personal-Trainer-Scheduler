@@ -20,10 +20,10 @@
       
   .col.s10.cardScheduler
     form#formScheda
-      input(id='cardName', type='text', name='cardName', ng-model='card', placeholder='Titolo Nuova Scheda')
+      input(id='cardName', type='text', name='cardName', ng-model='card.nome', placeholder='Titolo Nuova Scheda')
       //- input(type='text' ng-model='giornata')
-    .row(id='riscaldamento')
-      h3(ng-click='selectDay(0)') {{giornate[0].nome}}
+    .row(id='riscaldamento' ng-class='{selected: 0==pointer}' ng-click='selectDay(0)')
+      h3 {{giornate[0].nome}}
       .excercise-item(ng-repeat='esercizio in giornate[0].esercizi')
              table
                 thead Tipo:
@@ -44,8 +44,8 @@
                .img.valign-wrapper
                  img(ng-src='../images/Esercizi{{esercizio.tipo}}')   
     
-    .row(ng-repeat='giorno in giornate' ng-if='$index > 0')
-      h3(ng-click='selectDay($index)') {{giorno.nome}}
+    .row(ng-repeat='giorno in giornate' ng-if='$index > 0' ng-class='{selected: $index==pointer}' ng-click='selectDay($index)')
+      h3 {{giorno.nome}}
       .excercise-item(ng-repeat='esercizio in giorno.esercizi')
              table
                 thead Tipo:
@@ -68,3 +68,6 @@
      .row    
            h3.newDay Aggiungi Giorno 
              i.fa.fa-plus-square.left(ng-click='addDay()')
+.fixed-action-btn(style='top: 55px')
+  a.btn-floating.btn-large.backthree(ng-click='saveCard()')
+    i.fa.fa-floppy-o
