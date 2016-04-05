@@ -5,7 +5,7 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     multer = require('multer');
-// #Done:30 routes and models for cards
+// #Done:60 routes and models for cards
 var db = require('./model/db'),
     blob = require('./model/blobs'),
     client = require('./model/clients');

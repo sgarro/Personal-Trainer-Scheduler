@@ -1,5 +1,5 @@
 // #AngularJS:10 upload avatars issue:1
-// #Done:40 get info for single client
+// #Done:70 get info for single client
 // #AngularJS:0 Drag n drop to create new card
 var fitnessScheduler = angular.module('fitnessScheduler', ['file-model', "ngAnimate", 'angular-loading-bar', 'ui.tree'])
 // .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
@@ -12,7 +12,7 @@ function mainController($scope, $http) {
     $http.get('/clients')
         .success(function(data) {
             $scope.clients = data;
-            console.log(data);
+            // console.log(data);
         })
         .error(function(data) {
             console.log('Error: ' + data);
@@ -21,6 +21,8 @@ function mainController($scope, $http) {
     // when submitting the add form, send the text to the node API
     $scope.createClient = function() {
     //#AngularJS:20 validate form
+      console.log($scope.formData)
+      console.log(typeof($scope.formData))
         $http.post('/clients', $scope.formData)
             .success(function(data) {
                 $scope.formData = {}; // clear the form so our user is ready to enter another
@@ -56,7 +58,7 @@ function mainController($scope, $http) {
                 window.alert('Error: ' + data);
             });
     };
-    // #Done:50 edit client info
+    // #Done:80 edit client info
     $scope.updateClient = function(){
         var client = $scope.clients.selected
         $http.put('/clients/' +client._id, client)
@@ -89,7 +91,7 @@ function mainController($scope, $http) {
     };
 
     $scope.esercizi = [];
-    // TODO:0 scope giornata: puntatore a giornata corrente con click sui titoli
+    // #Done:30 scope giornata: puntatore a giornata corrente con click sui titoli
 
     $scope.pointer = 0;
     $scope.giornate=[];
@@ -97,7 +99,6 @@ function mainController($scope, $http) {
     $scope.addExcercise = function (file){
 
         esercizio = {'tipo': file}
-        console.log('LUNGHEZZA')
         g = $scope.pointer
         $scope.giornate[g].esercizi.push(esercizio)
   };
@@ -117,33 +118,27 @@ function mainController($scope, $http) {
   };
 
   $scope.saveCard = function(){
-    console.log('NOME CARD')
-    console.log($scope.card)
-    card = $scope.card
-    card.giornate = $scope.giornate
-    // console.log($.extend($scope.card, $scope.giornate))
-    // TODO: inviare al server
-    console.log(card)
+    // $scope.card.giornate=$scope.giornate
+    // card.giornate = $scope.giornate
+    scheda = {'nome' : $scope.card.nome,
+              'giornate': $scope.giornate}
+
+    $http.post('/cards', scheda)
+          .success(function(data) {
+              console.log('SUCCESS')
+              console.log(data);
+            })
+          .error(function(data) {
+              console.log('Error: ' + data);
+          });
+  
+
   }
-    //get all cards
-    // $scope.getCard = function() {
-    //     $http.get('/cards')
-    //         .success(function(data) {
-    //             $scope.cards = data;
-    //             console.log(data);
-    //         })
-    //         .error(function(data) {
-    //             console.log('Error: ' + data);
-    //         });
-    //
-    //
-    //
-    //
-    // };
+
     $http.get('/cards')
         .success(function(data) {
             $scope.cards = data;
-            console.log(data);
+            // console.log(data);
             // $('select').material_select();
         })
         .error(function(data) {

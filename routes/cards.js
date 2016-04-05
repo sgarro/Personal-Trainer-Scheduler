@@ -48,17 +48,10 @@ router.route('/')
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
         		// }
-                // TODO:10 fix creating card model
-                var esercizio = {
-                    nome: req.body.nomeEsercizio,
-                    ripetizioni: req.body.ripetizioni,
-                    peso: req.body.peso
-                }
-
-
-        		var scheda = {nome: req.body.nome,
-                 giornate:[{"nome": req.body.giorno, "esercizi":[esercizio, esercizio]}]}
-            //         {
+                // #Done:20 fix creating card model
+            console.log("CIAO RAGA")
+        		var scheda = {nome: req.body.nome}
+                        //         {
             //             nome: req.body.nomeEsercizio + ' 2',
             //             ripetizioni: req.body.ripetizioni,
             //             peso: req.body.peso
@@ -81,12 +74,12 @@ router.route('/')
 
         //   var user = new Client(data)
         //call the create function for our database
-        mongoose.model('Card').create(scheda, function (err, client) {
+        mongoose.model('Card').create(req.body, function (err, card) {
               if (err) {
                   res.send("There was a problem adding the information to the database.");
               } else {
                   //Client has been created
-                  console.log('POST creating new client: ' + client);
+                  console.log('POST creating new card: ' + card);
                   res.format({
                       //HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
                     html: function(){
@@ -98,7 +91,7 @@ router.route('/')
                     },
                     //JSON response will show the newly created client
                     json: function(){
-                        res.json(client);
+                        res.json(card);
                     }
                 });
               }
@@ -138,7 +131,7 @@ router.route('/:client_id')
     })
   //delete client
     .delete(function(req, res) {
-      // #Done:100 Delete avatar from uploads folder
+      // #Done:130 Delete avatar from uploads folder
       mongoose.model('Client').findById(req.params.client_id, function(err, client){
           if (err) {
               res.json(err)
@@ -162,7 +155,7 @@ router.route('/:client_id')
             }
         });
      });
-// #Done:60 route for edit Client info
+// #Done:90 route for edit Client info
     // .get(function(req, res){
     //   mongoose.model('Client').findById(req.params.client_id, function(err, client){
     //     if (err)
@@ -170,6 +163,6 @@ router.route('/:client_id')
     //     res.json(client);
     //   });
     // })
-// #Done:80 route for show Client info
+// #Done:110 route for show Client info
 
 module.exports = router;

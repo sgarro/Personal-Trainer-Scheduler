@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var esercizioSchema = new mongoose.Schema({
   nome: String,
   ripetizioni: Number,
-  peso: Number
+  peso: Number,
+  tipo: String,
 },{_id: false});
 //defining single day model with array of excercise
 var giornoSchema = new mongoose.Schema({

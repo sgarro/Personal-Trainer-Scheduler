@@ -128,7 +128,7 @@ router.route('/:client_id')
     })
   //delete client
     .delete(function(req, res) {
-      // #Done:110 Delete avatar from uploads folder
+      // #Done:140 Delete avatar from uploads folder
       mongoose.model('Client').findById(req.params.client_id, function(err, client){
           if (err) {
               res.json(err)
@@ -152,7 +152,7 @@ router.route('/:client_id')
             }
         });
      });
-// #Done:70 route for edit Client info
+// #Done:100 route for edit Client info
     // .get(function(req, res){
     //   mongoose.model('Client').findById(req.params.client_id, function(err, client){
     //     if (err)
@@ -160,6 +160,6 @@ router.route('/:client_id')
     //     res.json(client);
     //   });
     // })
-// #Done:90 route for show Client info
+// #Done:120 route for show Client info
 
 module.exports = router;
