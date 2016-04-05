@@ -27,9 +27,8 @@
     .row(ng-repeat='giorno in giornate')
       h3 Giorno {{giorno.id}}
       .excercise-item(ng-repeat='esercizio in giorno.esercizi')
-             {{esercizio.id}}
              table
-                thead
+                thead Tipo:
                   input(ng-model='esercizio.nome')
                   tr
                     th ripetizioni
