@@ -67,6 +67,10 @@ function mainController($scope, $http) {
                 console.log('Error: ' + data);
             });
         };
+    $scope.card = ''
+
+
+
 
     $scope.createCard = function() {
     //#AngularJS:20 validate form
@@ -83,8 +87,38 @@ function mainController($scope, $http) {
         //         console.log('Error: ' + data);
         //     });
     };
+    n = 0
+    $scope.esercizi = [];
+    g = -1
+    $scope.giornate=[];
+    $scope.addExcercise = function (file){
+        // $scope.giornata = ''
+        //
+        // $scope.card = ''
+        console.log(file)
+        esercizio = {'id' : n, 'tipo': file}
+        console.log($scope.giornate[g])
+        console.log(g)
+        $scope.giornate[g].esercizi.push(esercizio)
+        // console.log('ESERCIZI')
+        // console.log($scope.esercizi)
+        n++
+        // $scope.card.giornate[0].push($scope.esercizi)
+
+        // console.log($scope.card)
+    //   console.log($scope.giornate)
+  };
 
 
+  $scope.addDay = function(){
+      g++
+      giornata = {'id' : g, esercizi : []}
+      $scope.giornate.push(giornata)
+      console.log($scope.giornate[0])
+
+
+
+  };
     //get all cards
     // $scope.getCard = function() {
     //     $http.get('/cards')
@@ -109,7 +143,9 @@ function mainController($scope, $http) {
         .error(function(data) {
             console.log('Error: ' + data);
         });
-        $scope.selectedCard = null
+        $scope.giornata = ''
+
+        $scope.card = []
 }
 
 
