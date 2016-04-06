@@ -119,6 +119,8 @@ function mainController($scope, $http) {
     // $scope.card.giornate=$scope.giornate
     // card.giornate = $scope.giornate
     scheda = {'nome' : $scope.card.nome,
+              'inizio': $scope.card.inizio,
+              'fine': $scope.card.fine,
               'giornate': $scope.giornate}
 
     $http.post('/cards', scheda)

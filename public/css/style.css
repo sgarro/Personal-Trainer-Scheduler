@@ -312,12 +312,29 @@ input:checked + .month-picker-label:before {
   height: 92%;
   float: right !important;
 }
-.cardScheduler form input#cardName {
-  margin-left: 25%;
+.cardScheduler form#formScheda {
   width: 50%;
+  margin: auto;
+  border-bottom: 0px;
+}
+.cardScheduler form#formScheda input#cardName {
   text-align: center;
   font-size: 20px;
   color: #0e405d;
+  border-bottom: 0px;
+}
+.cardScheduler form#dataStart {
+  margin-left: 5%;
+}
+.cardScheduler input#cardEnd {
+  width: 100% !important;
+  color: #0e405d;
+  border-bottom: 0px;
+}
+.cardScheduler input#cardStart {
+  width: 100% !important;
+  color: #0e405d;
+  border-bottom: 0px;
 }
 .cardScheduler .newDay {
   color: #0a2230;
@@ -341,14 +358,14 @@ input:checked + .month-picker-label:before {
   display: inline-table;
   margin: 10px 0 0 1%;
   flex-grow: 1;
-  border: 2px solid #0e405d;
+  border: 2px solid ba;
   border-radius: 5px;
   padding: 5px;
   width: calc(100% * (1 / 4) - 10px - 1px);
 }
 .cardScheduler .excercise-item .img.valign-wrapper {
   border-top: 1px dotted #0e405d;
-  height: 200px;
+  height: 210px;
 }
 .cardScheduler .excercise-item input {
   width: 100% !important;

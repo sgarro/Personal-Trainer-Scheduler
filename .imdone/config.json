@@ -27,7 +27,7 @@
     },
     {
       "name": "AngularJS",
-      "hidden": true
+      "hidden": false
     },
     {
       "name": "Done",

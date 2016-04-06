@@ -19,58 +19,67 @@
     #Dorso
       
   .col.s10.cardScheduler
-    form#formScheda
-      input(id='cardName', type='text', name='cardName', ng-model='card.nome', placeholder='Titolo Nuova Scheda')
-      //- input(type='text' ng-model='giornata')
-    .row(id='riscaldamento' ng-class='{selected: 0==pointer}' ng-click='selectDay(0)')
-      h3 {{giornate[0].nome}}
-      .excercise-item(ng-repeat='esercizio in giornate[0].esercizi')
-             table
-                thead
-                  
-                  input(ng-model='esercizio.nome' id='esercizio_tipo' class='validate' type='text' placeholder='Tipo')
+    .row
+      form#formScheda
+        
+        input(id='cardName', type='text', name='cardName', ng-model='card.nome', placeholder='Titolo Nuova Scheda')
+        br
+      form#dataStart.left
+        |Data Inizio:
+        input(id='cardStart' type='date' ng-model='card.inizio' placeholder='Data Fine Scheda').left
+      form.data.right
+        |Data Fine:
+        input(id='cardEnd' type='date' ng-model='card.fine' placeholder='Data Fine Scheda').right
+    .row
+      .row(id='riscaldamento' ng-class='{selected: 0==pointer}' ng-click='selectDay(0)')
+        h3 {{giornate[0].nome}}
+        .excercise-item(ng-repeat='esercizio in giornate[0].esercizi')
+               table
+                  thead
                     
-                  tr
-                    th ripetizioni
-                    th peso
-                    th pausa
-                tbody
-                  tr
-                    td
-                      input(ng-model='esercizio.ripetizioni' class='validate' type='number')
-                    td 
-                      input(ng-model='esercizio.peso' class='validate' type='number')
-                    td 
-                      input(ng-model='esercizio.pausa' class='validate' type='number')
-              .img-excercise
-               .img.valign-wrapper
-                 img(ng-src='../images/Esercizi{{esercizio.tipo}}')   
-    
-    .row(ng-repeat='giorno in giornate' ng-if='$index > 0' ng-class='{selected: $index==pointer}' ng-click='selectDay($index)')
-      h3 {{giorno.nome}}
-      .excercise-item(ng-repeat='esercizio in giorno.esercizi')
-             table
-                thead
-                  input(ng-model='esercizio.nome' id='esercizio_tipo' class='validate' type='text' placeholder='Tipo')
-                  tr
-                    th ripetizioni
-                    th peso
-                    th pausa
-                tbody
-                  tr
-                    td
-                      input(ng-model='esercizio.ripetizioni' class='validate x' type='number')
-                    td 
-                      input(ng-model='esercizio.peso' class='validate x' type='number')
-                    td 
-                      input(ng-model='esercizio.pausa' class='validate x' type='number')
+                    input(ng-model='esercizio.nome' id='esercizio_tipo' class='validate' type='text' placeholder='Tipo')
+                      
+                    tr
+                      th ripetizioni
+                      th peso
+                      th pausa
+                  tbody
+                    tr
+                      td
+                        input(ng-model='esercizio.ripetizioni' class='validate' type='number')
+                      td 
+                        input(ng-model='esercizio.peso' class='validate' type='number')
+                      td 
+                        input(ng-model='esercizio.pausa' class='validate' type='number')
+                .img-excercise
+                 .img.valign-wrapper
+                   img(ng-src='../images/Esercizi{{esercizio.tipo}}')   
+      
+      .row(ng-repeat='giorno in giornate' ng-if='$index > 0' ng-class='{selected: $index==pointer}' ng-click='selectDay($index)')
+        h3 {{giorno.nome}}
+        .excercise-item(ng-repeat='esercizio in giorno.esercizi')
+               table
+                  thead
+                    input(ng-model='esercizio.nome' id='esercizio_tipo' class='validate' type='text' placeholder='Tipo')
+                    tr
+                      th ripetizioni
+                      th peso
+                      th pausa
+                  tbody
+                    tr
+                      td
+                        input(ng-model='esercizio.ripetizioni' class='validate x' type='number')
+                      td 
+                        input(ng-model='esercizio.peso' class='validate x' type='number')
+                      td 
+                        input(ng-model='esercizio.pausa' class='validate x' type='number')
 
-              .img-excercise
-               .img.valign-wrapper
-                 img(ng-src='../images/Esercizi{{esercizio.tipo}}')   
-     .row    
-           h3.newDay Aggiungi Giorno 
-             i.fa.fa-plus-square.left(ng-click='addDay()')
+                .img-excercise
+                 .img.valign-wrapper
+                   img(ng-src='../images/Esercizi{{esercizio.tipo}}')   
+       .row    
+             h3.newDay Aggiungi Giorno 
+               i.fa.fa-plus-square.left(ng-click='addDay()')
 .fixed-action-btn(style='top: 55px')
   a.btn-floating.btn-large.backthree(ng-click='saveCard()')
     i.fa.fa-floppy-o
