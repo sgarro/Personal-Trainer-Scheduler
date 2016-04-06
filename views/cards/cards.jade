@@ -26,8 +26,10 @@
       h3 {{giornate[0].nome}}
       .excercise-item(ng-repeat='esercizio in giornate[0].esercizi')
              table
-                thead Tipo:
-                  input(ng-model='esercizio.nome')
+                thead
+                  
+                  input(ng-model='esercizio.nome' id='esercizio_tipo' class='validate' type='text' placeholder='Tipo')
+                    
                   tr
                     th ripetizioni
                     th peso
@@ -35,11 +37,11 @@
                 tbody
                   tr
                     td
-                      input(ng-model='esercizio.ripetizioni')
+                      input(ng-model='esercizio.ripetizioni' class='validate' type='number')
                     td 
-                      input(ng-model='esercizio.peso')
+                      input(ng-model='esercizio.peso' class='validate' type='number')
                     td 
-                      input(ng-model='esercizio.pausa')
+                      input(ng-model='esercizio.pausa' class='validate' type='number')
               .img-excercise
                .img.valign-wrapper
                  img(ng-src='../images/Esercizi{{esercizio.tipo}}')   
@@ -48,8 +50,8 @@
       h3 {{giorno.nome}}
       .excercise-item(ng-repeat='esercizio in giorno.esercizi')
              table
-                thead Tipo:
-                  input(ng-model='esercizio.nome')
+                thead
+                  input(ng-model='esercizio.nome' id='esercizio_tipo' class='validate' type='text' placeholder='Tipo')
                   tr
                     th ripetizioni
                     th peso
@@ -57,11 +59,12 @@
                 tbody
                   tr
                     td
-                      input(ng-model='esercizio.ripetizioni')
+                      input(ng-model='esercizio.ripetizioni' class='validate x' type='number')
                     td 
-                      input(ng-model='esercizio.peso')
+                      input(ng-model='esercizio.peso' class='validate x' type='number')
                     td 
-                      input(ng-model='esercizio.pausa')
+                      input(ng-model='esercizio.pausa' class='validate x' type='number')
+
               .img-excercise
                .img.valign-wrapper
                  img(ng-src='../images/Esercizi{{esercizio.tipo}}')   

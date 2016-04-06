@@ -338,7 +338,7 @@ input:checked + .month-picker-label:before {
   width: 100%;
 }
 .cardScheduler .excercise-item {
-  display: inline-block;
+  display: inline-table;
   margin: 10px 0 0 1%;
   flex-grow: 1;
   border: 2px solid #0e405d;
@@ -346,8 +346,20 @@ input:checked + .month-picker-label:before {
   padding: 5px;
   width: calc(100% * (1 / 4) - 10px - 1px);
 }
-input {
+.cardScheduler .excercise-item .img.valign-wrapper {
+  border-top: 1px dotted #0e405d;
+  height: 200px;
+}
+.cardScheduler .excercise-item input {
+  width: 100% !important;
   background: none;
+  text-align: center;
+}
+.cardScheduler .excercise-item input #esercizio_tipo {
+  text-align: center;
+}
+.cardScheduler .excercise-item input .x {
+  border-bottom: 1px solid #0e405d !important;
 }
 .repeat-client.ng-enter,
 .repeat-client.ng-leave {
